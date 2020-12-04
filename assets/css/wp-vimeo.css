@@ -1,0 +1,369 @@
+/* glob rules */
+.wp_vimeo_btn_blue {
+    background: #4900A7;
+    color: #fff;
+}
+.wp_vimeo_btn_purple {
+    background: #AD00FF;
+    color: #fff;
+}
+.wp_vimeo_btn_red {
+    background: #CD0000;
+    color: #fff;
+}
+.wp_vimeo_nodata {
+    color: gray;
+    text-align: center;
+    padding: 50px 30px;
+}
+.wp_vimeo_loader {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    z-index: 99999;
+    background-image: url(https://disability.adaptedspiralpraxis.com//wp-content/plugins/wp-vimeo/assets/css/images/tenor.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.wp_vimeo_btn_black {
+    background: #000;
+    color: #fff;
+}
+.wp_vimeo_btn_large {
+    height: 45px;
+}
+.wp_vimeo_btns_wrap {
+    padding: 5px;
+}
+span.wp_vimeo_hlp_txt {
+    font-size: 12px;
+    color: #17a2b8;
+}
+.wp_vimeo_btn {
+    padding: 5px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    font-size: 12px;
+}
+.wp_vimeo_row {
+    display: flex;
+    justify-content: space-between;
+   
+}
+.wp_vimeo_modal_btns {
+    justify-content: flex-end;
+}
+.wp_vimewo_fieldwrap {
+    padding: 5px;
+    width: 100%;
+}
+span.wp_vimeo_error {
+    color: #ff0000;
+    font-size: 12px;
+}
+div.wp_vimeo_error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 10px;
+    margin: 0px 5px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+.wp_vimeo_auth_message {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    padding: 10px;
+    border-radius: 3px;
+}
+.wp_vimeo_input {
+    display: inline-block;
+    width: 100%;
+    height: 38px;
+    border-radius: 2px;
+    border: 1px solid #CECECE;
+}
+.wp_vimeo_input_textarea {
+    width: 100%;
+}
+.wp_vimeo_file_input {
+    padding-top: 8px;
+}
+.wp_vimewo_fieldwrap label {
+    margin: 0px;
+}
+.wp_vimeo_col_1, .wp_vimeo_col_2, .wp_vimeo_col_3, .wp_vimeo_col_4, .wp_vimeo_col_5, .wp_vimeo_col_6, .wp_vimeo_col_7, .wp_vimeo_col_8, .wp_vimeo_col_9, .wp_vimeo_col_10, .wp_vimeo_col_11, .wp_vimeo_col_12 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wp_vimeo_col_2 {
+    width: 16%
+}
+
+.wp_vimeo_col_3 {
+    width: 25%
+}
+
+.wp_vimeo_col_4 {
+    width: 33%
+}
+
+.wp_vimeo_col_5 {
+    width: 41%
+}
+.wp_vimeo_col_6 {
+    width: 50%
+}
+
+.wp_vimeo_col_7 {
+    width: 58%
+}
+.wp_vimeo_col_8 {
+    width: 66%
+}
+.wp_vimeo_col_9 {
+    width: 75%
+}
+
+.wp_vimeo_col_10 {
+    width: 83%
+}
+
+.wp_vimeo_col_11 {
+    width: 91%
+}
+
+.wp_vimeo_col_12 {
+    width: 100%
+}
+/* listing pagw */
+p.wp_vimeo_date {
+    margin: 0px !important;
+}
+.wp_vimeo_title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+.wp_vimeo_post_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+/* modal css */
+.wp_vimeo_modal_btns .wp_vimeo_btn {
+    margin-right: 5px;
+}
+.wp_vimeo_modal {
+    position: fixed;
+    z-index: 9999999;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    padding: 10% 0%;
+}
+.wp_vimeo_modal_content {
+    width: 600px;
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 3px;
+    max-width: 100%;
+}.wp_vimeo_modal_view {    width: 700px;		height:500px;    position: relative;    margin: 0 auto;    padding: 20px;    background: #fff;    border-radius: 3px;    max-width: 100%;}#video_frame_append{	width: 700px;		height:500px;}
+a.wp_vimeo_close {
+    position: absolute;
+    right: 5px;
+    z-index: 9;
+    top: 0px;
+    color: #000;
+}
+
+
+/* authentication page */
+.wp_vimeo_auth_message {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.wp_vimeo_login_wrap, .wp_vimeo_register_wrap {
+    width: 100%;
+}
+.wp_vimeo_authentication_wrap .wp_vimeo_register_text, .wp_vimeo_authentication_wrap .wp_vimeo_login_text {
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* dashboard page */
+.wp_vimeo_edit_profile {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: url(../img/edit.png);
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+}
+.wp_vimeo_profilehead {
+    position: relative;
+    margin: 20px 0px;
+}
+.wp_vimeo_profile_info {
+    display: flex;
+    flex-direction: column;
+}
+.wp_vimeo_p_bio_heading {
+    font-weight: 800;
+    font-size: 18px;
+}
+.wp_vimeo_p_age {
+    font-size: 20px;
+}
+.wp_vimeo_p_name {
+    font-size: 24px;
+    font-weight: 400;
+}
+.wp_vimeo_bio_wrap {
+    margin-top: 40px;
+}
+.wp_vimeo_p_v_head {
+    align-items: center;
+}
+.wp_vimeo_p_upload {
+    text-align: right;
+    margin-top: 10px;
+}
+.wp_vimeo_dp_wrap {
+    height: 200px;
+    border: 1px solid #E8E8E8;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+.wp_vimeo_dp_wrap img {
+    width: 100%;
+    height: 100%;
+}
+.wp_vimeo_profile_form {
+    display: none;
+}
+
+/* note slider */
+.wp_vimeo_notes_wrap .wp_vimeo_single_slide {
+    border: 1px solid #CECECE;
+    border-radius: 3px;
+    padding: 10px;
+    
+}
+.wp_vimeo_slide_title, .wp_vimeo_slide_btn {
+    display: block;
+}
+
+/* pagination */
+.pagination {
+
+    text-align: center;
+}
+.pagination ul li {
+    display: inline-block;
+}
+.pagination ul li a {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 10px 0 10px;
+    background: black;
+    color: #fff;
+}
+.prev-div,
+.next-div {
+    background: #000;
+    color: #fff;
+    padding: 2px 5px 2px 5px;
+    display: inline-block;
+}
+ul.page-numbers {
+    display: inline-block;
+    margin: 0px;
+    padding: 0 5px 0 5px;
+}
+.pagination ul li a:hover {
+    color: #d75c43;
+}
+h3.page-numbers {
+    background: #000;
+    color: #fff;
+    padding: 1px 7px 6px 7px;
+}
+
+.text_center{text-align:center;}
+
+#note_readmore_popup .wp_vimeo_col_12{ overflow-y:scroll; height:400px;}
+.fusion-header {
+    height: 90px !important;
+}
+.fusion-main-menu > ul > li > .dropdown {height: 90px;margin: 27px 0;}
+.fusion-main-menu > ul > li > .dropdown span, .fusion-main-menu > ul > li > .dropdown .dropdown-content p a {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+	letter-spacing: 2px;
+	font-style: normal;
+	}
+	.fusion-main-menu > ul > li > .dropdown span img {
+    margin-right: 10px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.wp_vimeo_slide_desc{
+	max-height: 267px;
+overflow: hidden;
+margin-bottom: 0px;
+	
+}
+.reset_filter {
+		padding: 11px;
+	position: relative;
+	top: 30px;
+	margin-left: 10px;
+	border-radius: 3px !important;
+	background: #4900A7;
+	color: #fff;
+}
+.float_left{float:left;}
+.video_tag{position: relative;
+top: 41px;
+text-align: right;}
+.video_tag span{border:1px solid #ccc; padding:10px; margin-right:10px;}

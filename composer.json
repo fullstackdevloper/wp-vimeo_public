@@ -1,0 +1,6 @@
+{
+    "require": {
+        "ankitpokhrel/tus-php": "^2.1",
+        "vimeo/vimeo-api": "^3.0"
+    }
+}

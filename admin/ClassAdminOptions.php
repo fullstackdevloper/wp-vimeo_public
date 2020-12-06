@@ -6,7 +6,7 @@ class WpVimeoOptions {
      * Holds the values to be used in the fields callbacks
      */
     private $options;
-    
+
     private $pages;
     /**
      * Start up
@@ -14,7 +14,7 @@ class WpVimeoOptions {
     public function __construct() {
         add_action('admin_menu', array($this, 'wp_vimeo_plugin_page'));
         add_action('admin_init', array($this, 'page_init'));
-        
+
         $this->pages = get_pages();
     }
 
@@ -71,13 +71,13 @@ class WpVimeoOptions {
         add_settings_field(
                 'wp_vimeo_api_access_token', __('Vimeo Access Token', 'activityhub'), [$this, 'wp_vimeo_api_access_token'], 'wp_vimeo_options', 'wp_vimeo_general'
         );
-        
+
         add_settings_field(
                 'wp_vimeo_listing_page', __('Video Listing Page', 'kidcircle'), [$this, 'wp_vimeo_listing_page'], 'wp_vimeo_options', 'wp_vimeo_general'
         );
-        
+
     }
-    
+
     /**
      * Html option for My account redirect page
      */
@@ -91,7 +91,7 @@ class WpVimeoOptions {
         </select>
         <?php
     }
-    
+
     /**
      * Vimeo client id Input box
      */
@@ -100,7 +100,7 @@ class WpVimeoOptions {
         <input type='text' style="width:50%; min-width:300px;" name='wp_vimeo_options[vimeo_client_id]' value='<?php $this->displayValue('vimeo_client_id'); ?>'>
         <?php
     }
-    
+
     /**
      * Vimeo client secret Input box
      */
@@ -109,7 +109,7 @@ class WpVimeoOptions {
         <input type='text' style="width:50%; min-width:300px;" name='wp_vimeo_options[vimeo_client_secret]' value='<?php $this->displayValue('vimeo_client_secret'); ?>'>
         <?php
     }
-    
+
     /**
      * Vimeo client access token Input box
      */
@@ -118,7 +118,7 @@ class WpVimeoOptions {
         <input type='text' style="width:50%; min-width:300px;" name='wp_vimeo_options[vimeo_access_token]' value='<?php $this->displayValue('vimeo_access_token'); ?>'>
         <?php
     }
-    
+
     /**
      * Sanitize each setting field as needed
      *
@@ -134,11 +134,12 @@ class WpVimeoOptions {
     public function general_setting() {
         print sprintf('');
     }
+
     /**
      * display value from array
      * @param String $key
      * @param bolean $return
-     * 
+     *
      * @return String value from options
      */
     private function displayValue($key, $return = false) {

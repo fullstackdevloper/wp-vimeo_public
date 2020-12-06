@@ -10,15 +10,15 @@
             <input type="hidden" name="action" value="wp_vimeo_addnote"/>
             <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
             <div class="wp_vimeo_row">
-                <div class="wp_vimeo_note_title wp_vimewo_fieldwrap">
-                    <input type="text" wp_vimeo_validation="required" placeholder="Title" name="wp_vimeo_note[title]" class="wp_vimeo_input">					
+                <div class="wp_vimeo_note_title wp_vimeo_fieldwrap">
+                    <input type="text" wp_vimeo_validation="required" placeholder="Title" name="wp_vimeo_note[title]" class="wp_vimeo_input">
                 </div>
-                <div class="wp_vimeo_note_date wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_note_date wp_vimeo_fieldwrap">
                     <input type="text" placeholder="Date" name="wp_vimeo_note[date]" class="wp_vimeo_input wp_vimeo_datepicker">
                 </div>
             </div>
             <div class="wp_vimeo_row">
-                <div class="wp_vimeo_note_content wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_note_content wp_vimeo_fieldwrap">
                     <?php wp_editor("", 'wp_vimeo_note_content', ['textarea_name' => 'wp_vimeo_note[content]', 'textarea_rows' => 10]); ?>
                 </div>
             </div>
@@ -32,7 +32,7 @@
 					<a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('cancel', 'wp-vimeo'); ?></a>
 					<button type="submit" class="wp_vimeo_btn wp_vimeo_btn_blue"><?php _e('Save', 'wp-vimeo'); ?></button>
 				</div>
-                
+
             </div>
         </form>
     </div>

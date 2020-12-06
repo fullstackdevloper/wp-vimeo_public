@@ -7,7 +7,7 @@
             <form class="wp_vimeo_login_form wp_vimeo_form" id="wp_vimeo_reset_form" method="post">
                 <input type="hidden" name="action" value="wp_vimeo_reset">
                 <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
-                <div class="wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_fieldwrap">
                     <input type="text" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_reset[user_reset]" id="user_reset" placeholder="Username OR Email address"/>
                 </div>
                 <div class="wp_vimeo_row wp_vimeo_btns_wrap">

@@ -1,8 +1,8 @@
 <div class="wp_vimeo_dashboard">
     <div class="wp_vimeo_row wp_vimeo_profilehead">
-        
+
         <div class="wp_vimeo_col_3 wp_vimeo_profile_pic">
-            <div class="wp_vimeo_dp_wrap">				
+            <div class="wp_vimeo_dp_wrap">
                 <?php print get_avatar($user->ID); ?>
             </div>
             <div class="wp_vimeo_p_upload">
@@ -30,23 +30,23 @@
                 <form method="post" class="wp_vimeo_profile_upload_form" action="<?php echo admin_url( 'admin-post.php' ); ?>">
                     <input type="hidden" name="action" value="wp_vimeo_update_info"/>
                     <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
-					
+
 					<div class="wp_vimeo_row">
-					
-					<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap">
+
+					<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
 						<input type="text" wp_vimeo_validation="required" value="<?php print get_user_meta($user->ID, 'child_first_name', true); ?>" placeholder="Child First Name" name="wp_vimeo_profile[child_first_name]" class="wp_vimeo_input">
 					</div>
-					
-					<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap">
+
+					<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
 						<input type="text" wp_vimeo_validation="required" value="<?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?>" placeholder="User Last Name" name="wp_vimeo_profile[lastname]" class="wp_vimeo_input">
 					</div>
-					
+
 					</div>
-                    				
-                    <div class="wp_vimeo_note_date wp_vimewo_fieldwrap">
+
+                    <div class="wp_vimeo_note_date wp_vimeo_fieldwrap">
                         <input type="text" placeholder="Child's Date of Birth" name="wp_vimeo_profile[dob]" value="<?php print get_user_meta($user->ID, 'wp_vimeo_dob', true); ?>" class="wp_vimeo_input wp_vimeo_datepicker">
                     </div>
-                    <div class="wp_vimeo_note_date wp_vimewo_fieldwrap">
+                    <div class="wp_vimeo_note_date wp_vimeo_fieldwrap">
                         <textarea rows="5" name="wp_vimeo_profile[description]" placeholder="Please tell us a bit about your child" class="wp_vimeo_input_textarea"><?php print get_user_meta($user->ID, 'description', true); ?></textarea>
                     </div>
                     <div class="wp_vimeo_row wp_vimeo_modal_btns">
@@ -70,19 +70,19 @@
                 <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
 				<div class="row">
 				<div class="wp_vimeo_col_6 float_left">
-					<div class="wp_vimeo_note_title wp_vimewo_fieldwrap">
-                    <input type="text" wp_vimeo_validation="required" placeholder="Title" name="wp_vimeo_note[title]" class="wp_vimeo_input">					
+					<div class="wp_vimeo_note_title wp_vimeo_fieldwrap">
+                    <input type="text" wp_vimeo_validation="required" placeholder="Title" name="wp_vimeo_note[title]" class="wp_vimeo_input">
 					</div>
 				</div>
 				<div class="wp_vimeo_col_6 float_left">
-					<div class="wp_vimeo_note_date wp_vimewo_fieldwrap">
+					<div class="wp_vimeo_note_date wp_vimeo_fieldwrap">
                     <input type="text" placeholder="Date" name="wp_vimeo_note[date]" class="wp_vimeo_input wp_vimeo_datepicker">
 					</div>
 				</div>
-				</div>			
-                
+				</div>
+
                 <div class="wp_vimeo_row">
-                    <div class="wp_vimeo_note_content wp_vimewo_fieldwrap">
+                    <div class="wp_vimeo_note_content wp_vimeo_fieldwrap">
                         <?php wp_editor("", 'wp_vimeo_note_content', ['textarea_name' => 'wp_vimeo_note[content]', 'textarea_rows' => 10]); ?>
                     </div>
                 </div>
@@ -105,9 +105,9 @@
 					<?php $thumlink = $this->getVimeoThumb(get_post_meta($NotePost->ID, 'wp_vimeo_id', true));
 					?>
 					<a href="javascript:;" onclick="wpVimeo.openVideoFrame(<?php print get_post_meta($NotePost->ID, 'wp_vimeo_id', true); ?>);">
-					
+
 					<img id="vimeo-<?php print get_post_meta($NotePost->ID, 'wp_vimeo_id', true); ?>" alt="Video Thumbnail" src="<?php echo $thumlink; ?>" />
-					
+
 					</a>
                     <!--<iframe src="https://player.vimeo.com/video/<?php print get_post_meta($NotePost->ID, 'wp_vimeo_id', true); ?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>-->
                 </div>
@@ -122,7 +122,7 @@
             <h3 class="wp_vimeo_heading wp_vimeo_col_10"><?php _e("Notes", 'wp_vimeo'); ?></h3>
             <a class="wp_vimeo_col_2" href="<?php print home_url('/notes-and-videos/'.'?filterby=wp_vimeo_notes'); ?>"><?php _e("view all notes", 'wp_vimeo'); ?></a>
         </div>
-        
+
         <div class="wp_vimeo_slides wp_vimeo_notes_wrap wp_vimeo_col_12">
             <?php $notePosts = $this->getVimeoPosts(['meta_query' => [['key' => 'wp_vimeo_id', 'compare' => 'NOT EXISTS']]]) ?>
             <?php foreach ($notePosts->posts as $key => $NotePost) : ?>

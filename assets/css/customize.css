@@ -29,7 +29,7 @@ body {
 	text-transform: uppercase;
 }
 
-.wp_vimewo_fieldwrap { padding-left: 0 }
+.wp_vimeo_fieldwrap { padding-left: 0 }
 
 .wp_vimeo_input, .wp_vimeo_input_textarea {
 	border: 1px solid #CECECE !important;
@@ -53,11 +53,11 @@ body {
 	border-radius: 3px !important;
 }
 
-.wp_vimeo_buttons.wp_vimewo_fieldwrap .wp_vimeo_btn:first-child {
+.wp_vimeo_buttons.wp_vimeo_fieldwrap .wp_vimeo_btn:first-child {
 	margin-left: 0;
 }
 
-.wp_vimeo_filter.wp_vimeo_col_6.wp_vimewo_fieldwrap:last-child {
+.wp_vimeo_filter.wp_vimeo_col_6.wp_vimeo_fieldwrap:last-child {
 	padding-right: 0;
 }
 
@@ -67,11 +67,11 @@ body {
 	font-family: 'Poppins', sans-serif;
 }
 
-.wpvimeo_note_title.wp_vimewo_fieldwrap .wp_vimeo_input {
+.wpvimeo_note_title.wp_vimeo_fieldwrap .wp_vimeo_input {
 	color: black !important;
 }
 
-#wp_vimeo_noteform > div > form > div:nth-child(3) > div.wp_vimeo_note_title.wp_vimewo_fieldwrap > input {
+#wp_vimeo_noteform > div > form > div:nth-child(3) > div.wp_vimeo_note_title.wp_vimeo_fieldwrap > input {
 	color: black !important;
 }
 
@@ -87,7 +87,7 @@ body {
 	padding-top: 4px;
 }
 
-.wp_vimeo_note_title.wp_vimewo_fieldwrap input, .wp_vimeo_note_date.wp_vimewo_fieldwrap input {
+.wp_vimeo_note_title.wp_vimeo_fieldwrap input, .wp_vimeo_note_date.wp_vimeo_fieldwrap input {
 	height: 40px;
 	color: black !important;
 }
@@ -134,4 +134,8 @@ h3.wp_vimeo_title {
 
 .wp_vimeo_login_form.wp_vimeo_form button[type="submit"] {
 	margin-left: 0;
+}
+
+.wp_vimeo_modal .wp_vimeo_modal_view {
+    height: auto;
 }

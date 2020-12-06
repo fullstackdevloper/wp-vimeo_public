@@ -10,26 +10,26 @@
             <input type="hidden" name="action" value="wp_vimeo_addvideo"/>
             <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
             <div class="wp_vimeo_row">
-                <div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
                     <input type="text" placeholder="Title" wp_vimeo_validation="required" name="wp_vimeo_video[title]" class="wp_vimeo_input">
                 </div>
-                <div class="wp_vimeo_col_6 wp_vimeo_note_date wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_col_6 wp_vimeo_note_date wp_vimeo_fieldwrap">
                     <input type="text" placeholder="Date" name="wp_vimeo_video[date]" class="wp_vimeo_input wp_vimeo_datepicker">
                 </div>
             </div>
             <div class="wp_vimeo_row">
-                <div class="wp_vimeo_col_6 wp_vimeo_search wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_col_6 wp_vimeo_search wp_vimeo_fieldwrap">
                     <input type="file" name="wp_vimeo_video[file]" wp_vimeo_validation="required" class="wp_vimeo_file_input">
                 </div>
-                <div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
                     <input type="text" placeholder="Video Caption" name="wp_vimeo_video[caption]" class="wp_vimeo_input">
                 </div>
 
             </div>
             <div class="wp_vimeo_row">
-                <span class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap"><?php _e('Upload a file with max size of', 'wp-vimeo'); ?> <?php echo $this->getMaxUploadSize(); ?> MB</span>
+                <span class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap"><?php _e('Upload a file with max size of', 'wp-vimeo'); ?> <?php echo $this->getMaxUploadSize(); ?> MB</span>
 
-				<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap">
+				<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
 				<label><?php _e('Tags', 'wp-vimeo'); ?></label>
                     <select data-placeholder="Select multiple tags" name="wp_vimeo_video[tag_option][]" multiple class="wp_vimeo_input chosen-select">
 					<option value="<?php print get_user_meta($user->ID, 'child_first_name', true); ?> <?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?>"><?php print get_user_meta($user->ID, 'child_first_name', true); ?> <?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?></option>

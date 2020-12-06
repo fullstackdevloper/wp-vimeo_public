@@ -9,39 +9,39 @@
                 <div class="wp_vimeo_row">
                     <div class="wp_vimeo_col_6">
 
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="text" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_register[name]" placeholder="First Name"/>
                         </div>
 
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="text" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_register[lastname]" placeholder="Last Name"/>
                         </div>
 
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="text" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_register[child_first_name]" placeholder="Child First Name"/>
                         </div>
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="text" placeholder="Child's Date of Birth" name="wp_vimeo_register[dob]" class="wp_vimeo_input wp_vimeo_datepicker">
                         </div>
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <textarea rows="5" cols="50" name="wp_vimeo_register[description]" placeholder="Please tell us a bit about your child." class="wp_vimeo_input_textarea"></textarea>
                         </div>
                     </div>
                     <div class="wp_vimeo_col_6">
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="text" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_register[username]" placeholder="Username"/>
                         </div>
 
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="text" wp_vimeo_validation="email" class="wp_vimeo_input" name="wp_vimeo_register[email]" placeholder="Email Address"/>
                         </div>
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="password" id="wp_vimeo_password" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_register[password]" placeholder="Password"/>
                         </div>
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <input type="password" wp_vimeo_validation="equalto" data-matching-field='#wp_vimeo_password' class="wp_vimeo_input" name="wp_vimeo_register[confirm_password]" placeholder="Re-enter Password"/>
                         </div>
-                        <div class="wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_fieldwrap">
                             <div class="g-recaptcha" data-sitekey="6LfNWvsZAAAAAN3a3eLenYApMlnF2j5eZcQYzBMt"></div>
                         </div>
                     </div>

@@ -7,17 +7,17 @@
                 <input type="hidden" name="action" value="wp_vimeo_login">
                 <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
                 <div class="wp_vimeo_row">
-                    <div class="wp_vimeo_col_6 wp_vimewo_fieldwrap">
+                    <div class="wp_vimeo_col_6 wp_vimeo_fieldwrap">
                         <input type="text" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_login[user_login]" placeholder="Username"/>
                     </div>
-                    <div class="wp_vimeo_col_6 wp_vimewo_fieldwrap">
+                    <div class="wp_vimeo_col_6 wp_vimeo_fieldwrap">
                         <input type="password" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_login[user_password]" placeholder="Password"/>
                     </div>
                 </div>
                 <div class="wp_vimeo_row wp_vimeo_btns_wrap">
                     <button type="submit" class="wp_vimeo_btn wp_vimeo_btn_blue wp_vimeo_btn_large"><?php _e('Login', 'wp-vimeo'); ?></button>
                 </div>
-				<div class="wp_vimewo_fieldwrap">
+				<div class="wp_vimeo_fieldwrap">
                     <a class="reset_password" href="<?php echo home_url(); ?>/reset-password"><?php _e('Reset Password', 'wp-vimeo'); ?></a>
 
 					<a class="signup" href="<?php echo home_url(); ?>/signup"><?php _e('Create an account', 'wp-vimeo'); ?></a>

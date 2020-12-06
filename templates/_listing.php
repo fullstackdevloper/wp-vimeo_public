@@ -26,7 +26,7 @@
 	</div>
 
     </div>
-    <div class="wp_vimeo_buttons wp_vimewo_fieldwrap">
+    <div class="wp_vimeo_buttons wp_vimeo_fieldwrap">
         <a class="wp_vimeo_btn wp_vimeo_btn_black" onclick="wpVimeo.openModal('wp_vimeo_edit_video_<?php echo $post->ID; ?>');" href="javascript:void(0);"><?php _e('Edit', 'wp-vimeo'); ?></a>
         <div id="wp_vimeo_edit_video_<?php echo $post->ID; ?>" class="wp_vimeo_modal">
             <div class="wp_vimeo_modal_content">
@@ -41,16 +41,16 @@
                     <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
                     <input type="hidden" name="wp_vimeopost_id" value="<?php echo $post->ID; ?>"/>
                     <div class="wp_vimeo_row">
-                        <div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
 							<label>Title</label>
                             <input type="text" placeholder="Title" wp_vimeo_validation="required" value="<?php echo $post->post_title; ?>" name="wp_vimeo_video[title]" class="wp_vimeo_input">
                         </div>
                     </div>
                     <div class="wp_vimeo_row">
-                        <div class="wp_vimeo_note_content wp_vimeo_col_12 wp_vimeo_note_title wp_vimewo_fieldwrap">
+                        <div class="wp_vimeo_note_content wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
                            	<label>Description</label>
 
-						<div class="wp_vimeo_note_content wp_vimewo_fieldwrap">
+						<div class="wp_vimeo_note_content wp_vimeo_fieldwrap">
 							<?php wp_editor($post->post_content, 'wp_vimeo_note_content_edit_'.$post->ID, ['textarea_name' => 'wp_vimeo_video[caption]', 'textarea_rows' => 10, 'textarea_class'=>'wp_vimeo_input', 'textarea_wp_vimeo_validation'=>'required']); ?>
 							</div>
                         </div>

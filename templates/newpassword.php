@@ -5,10 +5,10 @@
                 <input type="hidden" name="action" value="wp_vimeo_newpassword">
                 <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
                 <input type="hidden" name="wp_vimeo_newpassword[username]" value="<?php echo $userfield; ?>"/>
-                <div class="wp_vimewo_fieldwrap">
+                <div class="wp_vimeo_fieldwrap">
                     <input type="password" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_newpassword[user_newpass]" placeholder="New Password"/>
                 </div>
-				<div class="wp_vimewo_fieldwrap">
+				<div class="wp_vimeo_fieldwrap">
                     <input type="password" wp_vimeo_validation="required" class="wp_vimeo_input" name="wp_vimeo_newpassword[user_confirmpass]" placeholder="Confirm Password"/>
                 </div>
                 <div class="wp_vimeo_row wp_vimeo_btns_wrap">

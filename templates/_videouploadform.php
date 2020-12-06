@@ -24,19 +24,19 @@
                 <div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap">
                     <input type="text" placeholder="Video Caption" name="wp_vimeo_video[caption]" class="wp_vimeo_input">
                 </div>
-                
+
             </div>
             <div class="wp_vimeo_row">
                 <span class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap"><?php _e('Upload a file with max size of', 'wp-vimeo'); ?> <?php echo $this->getMaxUploadSize(); ?> MB</span>
-				
+
 				<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimewo_fieldwrap">
 				<label><?php _e('Tags', 'wp-vimeo'); ?></label>
-                    <select data-placeholder="Select multiple tags" name="wp_vimeo_video[milstone_option][]" multiple class="wp_vimeo_input chosen-select">
+                    <select data-placeholder="Select multiple tags" name="wp_vimeo_video[tag_option][]" multiple class="wp_vimeo_input chosen-select">
 					<option value="<?php print get_user_meta($user->ID, 'child_first_name', true); ?> <?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?>"><?php print get_user_meta($user->ID, 'child_first_name', true); ?> <?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?></option>
 					<option value="Milestone"><?php _e('Milestone', 'wp-vimeo'); ?></option>
 					</select>
                 </div>
-				
+
             </div>
             <div class="wp_vimeo_row wp_vimeo_modal_btns">
                 <a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('cancel', 'wp-vimeo'); ?></a>

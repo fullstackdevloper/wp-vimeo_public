@@ -12,8 +12,8 @@
 	<iframe src="<?php echo wp_sprintf('https://player.vimeo.com/video/%s', $videoLink); ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 	<div class="text_center testingii"><?php echo wpautop($post->post_content); ?></div>
 	<div class="video_tag">
-	<?php $videoLink = get_post_meta($post->ID, 'milstone_option', true); 
-	
+	<?php $videoLink = get_post_meta($post->ID, 'tag_option', true);
+
 		$videtags = explode(",",$videoLink);
 		foreach($videtags as $videtag){
 			echo '<span class="tag_span">'.$videtag.'</span>';
@@ -24,7 +24,7 @@
 	<div class="text_center testingii"><?php echo wpautop($post->post_content); ?></div>
 	<?php endif; ?>
 	</div>
-        
+
     </div>
     <div class="wp_vimeo_buttons wp_vimewo_fieldwrap">
         <a class="wp_vimeo_btn wp_vimeo_btn_black" onclick="wpVimeo.openModal('wp_vimeo_edit_video_<?php echo $post->ID; ?>');" href="javascript:void(0);"><?php _e('Edit', 'wp-vimeo'); ?></a>
@@ -48,9 +48,9 @@
                     </div>
                     <div class="wp_vimeo_row">
                         <div class="wp_vimeo_note_content wp_vimeo_col_12 wp_vimeo_note_title wp_vimewo_fieldwrap">
-                           	<label>Description</label>		
+                           	<label>Description</label>
 
-						<div class="wp_vimeo_note_content wp_vimewo_fieldwrap">							
+						<div class="wp_vimeo_note_content wp_vimewo_fieldwrap">
 							<?php wp_editor($post->post_content, 'wp_vimeo_note_content_edit_'.$post->ID, ['textarea_name' => 'wp_vimeo_video[caption]', 'textarea_rows' => 10, 'textarea_class'=>'wp_vimeo_input', 'textarea_wp_vimeo_validation'=>'required']); ?>
 							</div>
                         </div>

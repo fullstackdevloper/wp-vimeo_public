@@ -206,6 +206,7 @@ h3.wp_vimeo_heading {
     width: 100%;
 }
 
-.text_center {
+.text_center,
+.text_center p {
     text-align: center;
 }

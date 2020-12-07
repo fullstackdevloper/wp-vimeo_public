@@ -210,3 +210,8 @@ h3.wp_vimeo_heading {
 .text_center p {
     text-align: center;
 }
+
+/* Multi-select */
+.chosen-container-multi .chosen-choices {
+    padding: 3px 5px;
+}

@@ -24,12 +24,12 @@
             </div>
             <div class="wp_vimeo_row wp_vimeo_modal_btns">
 				<div class="note_btn_left">
-					<a class="wp_vimeo_btn" onclick="wpVimeo.noteTemplate(this);" href="javascript:void(0);"><?php _e('Note Template', 'wp-vimeo'); ?></a>
-					<a class="wp_vimeo_btn" onclick="wpVimeo.lessonTemplate(this);" href="javascript:void(0);"><?php _e('Lesson Template', 'wp-vimeo'); ?></a>
+					<a class="wp_vimeo_btn" onclick="wpVimeo.noteTemplate('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Note Template', 'wp-vimeo'); ?></a>
+					<a class="wp_vimeo_btn" onclick="wpVimeo.lessonTemplate('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Lesson Template', 'wp-vimeo'); ?></a>
 					<a class="wp_vimeo_btn" onclick="wpVimeo.noteClear('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('clear', 'wp-vimeo'); ?></a>
 				</div>
 				<div class="note_btn_right">
-					<a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('cancel', 'wp-vimeo'); ?></a>
+					<a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('Cancel', 'wp-vimeo'); ?></a>
 					<button type="submit" class="wp_vimeo_btn wp_vimeo_btn_blue"><?php _e('Save', 'wp-vimeo'); ?></button>
 				</div>
 

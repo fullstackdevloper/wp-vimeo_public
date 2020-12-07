@@ -80,7 +80,7 @@ vimeo
 
                     <div class="wp_vimeo_row wp_vimeo_modal_btns">
 
-                        <a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('cancel', 'wp-vimeo'); ?></a>
+                        <a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('Cancel', 'wp-vimeo'); ?></a>
 
                         <button type="submit" class="wp_vimeo_btn wp_vimeo_btn_blue"><?php _e('Update', 'wp-vimeo'); ?></button>
 

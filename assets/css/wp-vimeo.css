@@ -61,11 +61,10 @@ span.wp_vimeo_hlp_txt {
 .wp_vimeo_row {
     display: flex;
     justify-content: space-between;
-
 }
 
 .wp_vimeo_modal_btns {
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .wp_vimeo_fieldwrap {
@@ -446,11 +445,12 @@ h3.page-numbers {
 .reset_filter {
     padding: 11px;
     position: relative;
-    top: 30px;
+    top: 33px;
     margin-left: 10px;
     border-radius: 3px !important;
     background: #4900A7;
     color: #fff;
+    font-size: 0.7em;
 }
 
 .float_left {
@@ -467,4 +467,17 @@ h3.page-numbers {
     border: 1px solid #ccc;
     padding: 10px;
     margin-right: 10px;
+}
+
+.wp_vimeo_note_title input {
+    margin-left: -6px;
+    width: 266px !important;
+}
+
+.note_btn_left {
+    display: flex;
+}
+
+.note_btn_right .wp_vimeo_buttons.wp_vimeo_fieldwrap .wp_vimeo_btn:first-child {
+    display: inline-flex;
 }

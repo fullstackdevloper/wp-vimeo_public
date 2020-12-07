@@ -43,7 +43,7 @@
                     </select>
                 </div>
 				<div id="" class="wp_vimeo_filter wp_vimeo_col_3 wp_vimeo_fieldwrap">
-				<a href="<?php echo home_url('/notes-and-videos/'); ?>" class="reset_filter"><?php _e('Reset Filter', 'wp-vimeo'); ?></a>
+				<a href="<?php echo home_url('/notes-and-videos/'); ?>" class="reset_filter"><?php _e('Reset Filters', 'wp-vimeo'); ?></a>
 
                 </div>
             </div>

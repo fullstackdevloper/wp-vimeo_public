@@ -10,7 +10,7 @@
 	<?php $videoLink = get_post_meta($post->ID, 'wp_vimeo_id', true); ?>
 	<?php if($videoLink): ?>
 	<iframe src="<?php echo wp_sprintf('https://player.vimeo.com/video/%s', $videoLink); ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-	<div class="text_center testingii"><?php echo wpautop($post->post_content); ?></div>
+	<div class="text_center"><?php echo wpautop($post->post_content); ?></div>
 	<div class="video_tag">
 	<?php $videoLink = get_post_meta($post->ID, 'tag_option', true);
 
@@ -21,7 +21,7 @@
 	?>
 	</div>
 	<?php else : ?>
-	<div class="text_center testingii"><?php echo wpautop($post->post_content); ?></div>
+	<div class="text_center"><?php echo wpautop($post->post_content); ?></div>
 	<?php endif; ?>
 	</div>
 

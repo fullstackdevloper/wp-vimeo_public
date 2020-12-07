@@ -164,3 +164,48 @@ h3.wp_vimeo_title {
 .wp_vimeo_modal .wp_vimeo_modal_view {
     height: auto;
 }
+
+h3.wp_vimeo_p_upload_txt,
+h3.wp_vimeo_p_note_txt,
+h3.wp_vimeo_heading {
+    font-size: 2em;
+    margin-top: 25px;
+}
+
+.wp_vimeo_profile_pic .wp_vimeo_dp_wrap {
+    width: 200px;
+}
+
+.wp_vimeo_upload_video .wp_vimeo_btn,
+.wp_vimeo_noteform .wp_vimeo_btn {
+    margin-left: 0;
+}
+
+.guide-sidebar-menu .logout_class {
+    display: none !important;
+}
+
+/* Login button */
+.wp_vimeo_btns_wrap {
+    padding-left: 0;
+}
+
+/* Nav menu avatar */
+.logout_class .dropdown img {
+    width: 20px;
+    height: 20px;
+    margin-top: 6px;
+}
+
+.logout_class .dropdown .dropdown-content p {
+    margin: 0;
+}
+
+
+.wp_vimeo_content iframe {
+    width: 100%;
+}
+
+.text_center {
+    text-align: center;
+}

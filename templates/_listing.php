@@ -1,5 +1,5 @@
 <?php $query = $this->getVimeoPosts($arg); ?>
-<?php foreach($query->posts as $key => $post): ?>
+<?php foreach ($query->posts as $key => $post): ?>
 <div class="wp_vimeo_single_post">
     <div class="wp_vimeo_post_header">
         <h3 class="wp_vimeo_title"><?php print $post->post_title; ?></h3>
@@ -8,18 +8,25 @@
     <div class="wp_vimeo_content wp_vimeo_row">
 	<div class="wp_vimeo_col_12">
 	<?php $videoLink = get_post_meta($post->ID, 'wp_vimeo_id', true); ?>
-	<?php if($videoLink): ?>
+	<?php if ($videoLink): ?>
 	<iframe src="<?php echo wp_sprintf('https://player.vimeo.com/video/%s', $videoLink); ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 	<div class="text_center"><?php echo wpautop($post->post_content); ?></div>
-	<div class="video_tag">
 	<?php $videoLink = get_post_meta($post->ID, 'tag_option', true);
 
-		$videtags = explode(",",$videoLink);
-		foreach($videtags as $videtag){
-			echo '<span class="tag_span">'.$videtag.'</span>';
-		}
-	?>
-	</div>
+        $video_tags = explode(",", $videoLink);
+
+        // Hide if no tags
+        if (empty($video_tags[0])) {
+            echo '';
+        } else {
+            echo '<div class="video_tag">';
+            foreach ($video_tags as $video_tag) {
+                echo '<span class="tag_span">'.$video_tag.'</span>';
+            }
+            echo '</div>';
+        }
+
+    ?>
 	<?php else : ?>
 	<div class="text_center"><?php echo wpautop($post->post_content); ?></div>
 	<?php endif; ?>
@@ -36,7 +43,7 @@
                         <line x1="1" y1="1" stroke="#000" x2="11" y2="11" stroke-width="2"></line>
                     </svg>
                 </a>
-                <form class="wp_vimeo_videoform wp_vimeo_form" method="post" enctype="multipart/form-data" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+                <form class="wp_vimeo_videoform wp_vimeo_form" method="post" enctype="multipart/form-data" action="<?php echo admin_url('admin-post.php'); ?>">
                     <input type="hidden" name="action" value="wp_vimeo_editvideo"/>
                     <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
                     <input type="hidden" name="wp_vimeopost_id" value="<?php echo $post->ID; ?>"/>
@@ -63,8 +70,12 @@
                 </form>
             </div>
         </div>
-        <a class="wp_vimeo_btn wp_vimeo_btn_red wp_vimeo_delete_video" title="<?php  if(get_post_meta($post->ID,'wp_vimeo_id',true) !=''){echo 'Video';}else{ echo 'Note';} ?>" href="javascript:void(0);"><?php _e('Delete', 'wp-vimeo'); ?></a>
-        <form method="post" class="wp_vimeo_profile_delete_form" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+        <a class="wp_vimeo_btn wp_vimeo_btn_red wp_vimeo_delete_video" title="<?php  if (get_post_meta($post->ID, 'wp_vimeo_id', true) !='') {
+        echo 'Video';
+    } else {
+        echo 'Note';
+    } ?>" href="javascript:void(0);"><?php _e('Delete', 'wp-vimeo'); ?></a>
+        <form method="post" class="wp_vimeo_profile_delete_form" action="<?php echo admin_url('admin-post.php'); ?>">
             <input type="hidden" name="action" value="wp_vimeo_delete_video"/>
             <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
             <input type="hidden" name="wp_vimeopost_id" value="<?php echo $post->ID; ?>"/>
@@ -73,7 +84,7 @@
 </div>
 <?php endforeach; ?>
 <?php $this->wpVimeoPagination($query, $arg); ?>
-<?php if(!$query->found_posts): ?>
+<?php if (!$query->found_posts): ?>
 <div class="wp_vimeo_nodata"><?php _e("No videos or notes found. Please try again or add a note or a video to your records.", 'wp_vimeo'); ?></div>
 
 <?php endif; ?>

@@ -10,10 +10,10 @@
 	<?php $videoLink = get_post_meta($post->ID, 'wp_vimeo_id', true); ?>
 	<?php if ($videoLink): ?>
 	<iframe src="<?php echo wp_sprintf('https://player.vimeo.com/video/%s', $videoLink); ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-	<div class="text_center"><?php echo wpautop($post->post_content); ?></div>
-	<?php $videoLink = get_post_meta($post->ID, 'tag_option', true);
+	<div class="video_post"><?php echo wpautop($post->post_content); ?></div>
+	<?php $tag_options = get_post_meta($post->ID, 'tag_option', true);
 
-        $video_tags = explode(",", $videoLink);
+        $video_tags = explode(",", $tag_options);
 
         // Hide if no tags
         if (empty($video_tags[0])) {
@@ -28,7 +28,7 @@
 
     ?>
 	<?php else : ?>
-	<div class="text_center"><?php echo wpautop($post->post_content); ?></div>
+	<div class="note_post"><?php echo wpautop($post->post_content); ?></div>
 	<?php endif; ?>
 	</div>
 
@@ -54,6 +54,10 @@
                         </div>
                     </div>
 					<div class="wp_vimeo_row">
+                    <?php
+                        // Only show tags if it is a video type
+                        if ($videoLink):
+                    ?>
 					<div class="wp_vimeo_col_8 wp_vimeo_note_title wp_vimeo_fieldwrap">
 						<label><?php _e('Tags', 'wp-vimeo'); ?></label>
 						<?php
@@ -71,10 +75,11 @@
                             echo "<option value='$childName' $hasChildName>$childName</option>";
                         ?>
 						</select>
-					</div>
+                    </div>
 					<div class="wp_vimeo_col_4 wp_vimeo_note_title wp_vimeo_fieldwrap">
 						<a href="javascript:void();" class="deselect">Deselect All</a>
 					</div>
+                    <?php endif; ?>
 
                 </div>
                     <div class="wp_vimeo_row">

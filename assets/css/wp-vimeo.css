@@ -481,3 +481,8 @@ h3.page-numbers {
 .note_btn_right .wp_vimeo_buttons.wp_vimeo_fieldwrap .wp_vimeo_btn:first-child {
     display: inline-flex;
 }
+.deselect{
+	background: blue;
+	color: #fff;
+	padding: 10px
+}

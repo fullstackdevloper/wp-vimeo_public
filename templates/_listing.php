@@ -56,33 +56,35 @@
 					<div class="wp_vimeo_row">
 					<div class="wp_vimeo_col_8 wp_vimeo_note_title wp_vimeo_fieldwrap">
 						<label><?php _e('Tags', 'wp-vimeo'); ?></label>
-						<?php 
-								$videovimotags = get_post_meta($post->ID, 'tag_option', true);
-								$vimeo_tags = explode(",", $videovimotags);
-								
-								$complete_name = get_user_meta($user->ID, 'child_first_name', true).' '.get_user_meta($user->ID, 'vimeo_last_name', true);
+						<?php
+								$video_vimeo_tags = get_post_meta($post->ID, 'tag_option', true);
+                                $vimeo_tags = explode(",", $video_vimeo_tags);
+
+								$childName = get_user_meta($user->ID, 'child_first_name', true).' '.get_user_meta($user->ID, 'vimeo_last_name', true);
 						?>
 						<select id="multi_tag" data-placeholder="Select multiple tags" name="wp_vimeo_video[tag_option][]" multiple class="wp_vimeo_input chosen-select">
-						<option value="<?php print $complete_name; ?>" <?php if(in_array($complete_name,$vimeo_tags)){ echo 'selected="selected"';} ?>><?php print $complete_name; ?></option>
-						
-						<option value="Milestone" <?php if(in_array('Milestone',$vimeo_tags)){ echo 'selected="selected"';} ?>><?php _e('Milestone', 'wp-vimeo'); ?></option>
+                        <?php
+                            $hasMilestone = !in_array('Milestone', $vimeo_tags) ? '' : 'selected="selected"';
+                            $hasChildName = !in_array($childName, $vimeo_tags) ? '' : 'selected="selected"';
+
+                            echo "<option value='Milestone' $hasMilestone>Milestone</option>";
+                            echo "<option value='$childName' $hasChildName>$childName</option>";
+                        ?>
 						</select>
 					</div>
 					<div class="wp_vimeo_col_4 wp_vimeo_note_title wp_vimeo_fieldwrap">
-						<a href="javascript:;" class="deselect">Deselect All</a>
+						<a href="javascript:void();" class="deselect">Deselect All</a>
 					</div>
-					
-					
+
                 </div>
                     <div class="wp_vimeo_row">
                         <div class="wp_vimeo_note_content wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
                            	<label>Description</label>
 
-						<div class="wp_vimeo_note_content wp_vimeo_fieldwrap">
-							<?php wp_editor($post->post_content, 'wp_vimeo_note_content_edit_'.$post->ID, ['textarea_name' => 'wp_vimeo_video[caption]', 'textarea_rows' => 10, 'textarea_class'=>'wp_vimeo_input', 'textarea_wp_vimeo_validation'=>'required']); ?>
+						    <div class="wp_vimeo_note_content wp_vimeo_fieldwrap">
+							    <?php wp_editor($post->post_content, 'wp_vimeo_note_content_edit_'.$post->ID, ['textarea_name' => 'wp_vimeo_video[caption]', 'textarea_rows' => 10, 'textarea_class'=>'wp_vimeo_input', 'textarea_wp_vimeo_validation'=>'required']); ?>
 							</div>
                         </div>
-
                     </div>
                     <div class="wp_vimeo_row wp_vimeo_modal_btns">
                         <a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('Cancel', 'wp-vimeo'); ?></a>
@@ -110,9 +112,7 @@
 <script>
 
 jQuery(document).ready(function(){
-	
 	jQuery("#multi_tag").val().trigger("chosen:updated");
-	
 });
 
 </script>

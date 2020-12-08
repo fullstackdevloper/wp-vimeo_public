@@ -6,14 +6,14 @@
  */
 
 class WpVimeoShortcode {
-    
+
     /**
      * class constructor
      */
     function __construct() {
         add_action('init', [$this, 'initShortcodes']);
     }
-    
+
     /**
      * init all shortcodes for plugin
      */
@@ -24,18 +24,18 @@ class WpVimeoShortcode {
          */
         add_shortcode('wp-vimeo-listing', [$this, 'wpVimeoListing']);
 		add_shortcode('wp-vimeo-signup', [$this, 'signupForm']);
-		
+
 		add_shortcode('wp-vimeo-login', [$this, 'loginForm']);
-		
+
 		add_shortcode('wp-vimeo-reset', [$this, 'resetForm']);
-        
+
         /**
          * Shortcode to display the list of videos uploaded in user account
          * [activityhub_sessions]
          */
         add_shortcode('wp-vimeo-dashboard', [$this, 'wpVimeoDashboard']);
     }
-   
+
     /**
      * wp vimeo shortcode to display the listing
      */
@@ -47,16 +47,16 @@ class WpVimeoShortcode {
             if($filterBy) {
                 if($filterBy == 'videos') {
                     $arguments['meta_query'] = [
-                        [   
-                            'key' => 'wp_vimeo_id', 
+                        [
+                            'key' => 'wp_vimeo_id',
                             'compare' => 'EXISTS'
                         ]
                     ];
                 }
                 if($filterBy == 'notes') {
                     $arguments['meta_query'] = [
-                        [   
-                            'key' => 'wp_vimeo_id', 
+                        [
+                            'key' => 'wp_vimeo_id',
                             'compare' => 'NOT EXISTS'
                         ]
                     ];
@@ -66,24 +66,24 @@ class WpVimeoShortcode {
         }else {
             // display a unauthentication message
             $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message', __('Please login to view videos.', 'wp-vimeo')));
-            $html.= WpVimeo()->engine->getView('authentication');
-            
+            $html.= WpVimeo()->engine->getView('login');
+
             return $html;
         }
     }
-    
+
     /**
-     * Wp Vimeo shortcode to display the user dashboard 
+     * Wp Vimeo shortcode to display the user dashboard
      */
     public function wpVimeoDashboard() {
         if(is_user_logged_in()) {
-            
+
             return WpVimeo()->engine->getView('dashboard');
         }else {
             // display a unauthentication message
             $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message-dashboard', __('Please login to view your profile.', 'wp-vimeo')));
-            $html.= WpVimeo()->engine->getView('authentication');
-            
+            $html.= WpVimeo()->engine->getView('login');
+
             return $html;
         }
     }

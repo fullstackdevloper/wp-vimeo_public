@@ -111,11 +111,27 @@
             <h3 class="wp_vimeo_heading wp_vimeo_col_10"><?php _e("Videos", 'wp_vimeo'); ?></h3>
             <a class="wp_vimeo_col_2" href="<?php print home_url('/notes-and-videos/').'?filterby=wp_vimeo_video'; ?>"><?php _e("view all videos", 'wp_vimeo'); ?></a>
         </div>
-        <div class="wp_vimeo_slides wp_vimeo_videos_wrap wp_vimeo_col_12">
+        <div class="wp_vimeo_slides wp_vimeo_slides_desktop wp_vimeo_videos_wrap wp_vimeo_col_12">
             <?php $videoPosts = $this->getVimeoPosts(['meta_query' => [['key' => 'wp_vimeo_id', 'compare' => 'EXISTS']]]);?>
             <?php foreach ($videoPosts->posts as $key => $NotePost) : ?>
                 <div class="wp_vimeo_single_slide">
-                    <b class="wp_vimeo_slide_title"><?php print $NotePost->post_title;  ?></b>
+                    <h5 class="wp_vimeo_slide_title"><?php print $NotePost->post_title;  ?></h5>
+					<?php $thumlink = $this->getVimeoThumb(get_post_meta($NotePost->ID, 'wp_vimeo_id', true));
+					?>
+					<a href="javascript:;" onclick="wpVimeo.openVideoFrame(<?php print get_post_meta($NotePost->ID, 'wp_vimeo_id', true); ?>);">
+
+					<img id="vimeo-<?php print get_post_meta($NotePost->ID, 'wp_vimeo_id', true); ?>" alt="Video Thumbnail" src="<?php echo $thumlink; ?>" />
+
+					</a>
+                    <!--<iframe src="https://player.vimeo.com/video/<?php print get_post_meta($NotePost->ID, 'wp_vimeo_id', true); ?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>-->
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="wp_vimeo_slides wp_vimeo_slides_mobile wp_vimeo_videos_wrap wp_vimeo_col_12">
+            <?php $videoPosts = $this->getVimeoPosts(['meta_query' => [['key' => 'wp_vimeo_id', 'compare' => 'EXISTS']]]);?>
+            <?php foreach ($videoPosts->posts as $key => $NotePost) : ?>
+                <div class="wp_vimeo_single_slide">
+                    <h5 class="wp_vimeo_slide_title"><?php print $NotePost->post_title;  ?></h5>
 					<?php $thumlink = $this->getVimeoThumb(get_post_meta($NotePost->ID, 'wp_vimeo_id', true));
 					?>
 					<a href="javascript:;" onclick="wpVimeo.openVideoFrame(<?php print get_post_meta($NotePost->ID, 'wp_vimeo_id', true); ?>);">
@@ -137,11 +153,23 @@
             <a class="wp_vimeo_col_2" href="<?php print home_url('/notes-and-videos/'.'?filterby=wp_vimeo_notes'); ?>"><?php _e("view all notes", 'wp_vimeo'); ?></a>
         </div>
 
-        <div class="wp_vimeo_slides wp_vimeo_notes_wrap wp_vimeo_col_12">
+        <div class="wp_vimeo_slides wp_vimeo_slides_desktop wp_vimeo_notes_wrap wp_vimeo_col_12">
             <?php $notePosts = $this->getVimeoPosts(['meta_query' => [['key' => 'wp_vimeo_id', 'compare' => 'NOT EXISTS']]]) ?>
             <?php foreach ($notePosts->posts as $key => $NotePost) : ?>
                 <div class="wp_vimeo_single_slide">
-                    <b class="wp_vimeo_slide_title"><?php print $NotePost->post_title;  ?></b>
+                    <h5 class="wp_vimeo_slide_title"><?php print $NotePost->post_title;  ?></h5>
+                    <div class="wp_vimeo_slide_desc">
+                        <?php print wpautop($NotePost->post_content); ?>
+                    </div>
+                    <a href="javascript:void(0);" onclick="wpVimeo.noteDescription(<?php echo $NotePost->ID; ?>);" class="wp_vimeo_slide_btn"><?php _e('read more', 'wp_vimeo'); ?></a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="wp_vimeo_slides wp_vimeo_slides_mobile wp_vimeo_notes_wrap wp_vimeo_col_12">
+            <?php $notePosts = $this->getVimeoPosts(['meta_query' => [['key' => 'wp_vimeo_id', 'compare' => 'NOT EXISTS']]]) ?>
+            <?php foreach ($notePosts->posts as $key => $NotePost) : ?>
+                <div class="wp_vimeo_single_slide">
+                    <h5 class="wp_vimeo_slide_title"><?php print $NotePost->post_title;?></h5>
                     <div class="wp_vimeo_slide_desc">
                         <?php print wpautop($NotePost->post_content); ?>
                     </div>
@@ -157,7 +185,7 @@
 <div id="wp_vimeo_video_view" class="wp_vimeo_modal">
     <div class="wp_vimeo_modal_view">
         <a href="javascript:void();" class="wp_vimeo_close" onclick="wpVimeo.closepopup('wp_vimeo_video_view');">
-            <svg width="12" height="12" viewport="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <svg width="10" height="10" viewport="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" stroke="#000" y1="11" x2="11" y2="1" stroke-width="2"></line>
                 <line x1="1" y1="1" stroke="#000" x2="11" y2="11" stroke-width="2"></line>
             </svg>

@@ -310,3 +310,52 @@ button:hover {
 .fusion-main-menu .menu-item.custom_menu_item {
     display: block;
 }
+
+.fusion-header-has-flyout-menu .fusion-flyout-mobile-menu-icons {
+    margin-top: 20px;
+}
+
+.wp_vimeo_profile_info {
+    position: relative;
+}
+
+.wp_vimeo_profile_videos img {
+    margin: 0 auto;
+}
+
+.wp_vimeo_profile_videos h5 {
+    text-align: center;
+}
+
+.wp_vimeo_slides h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.wp_vimeo_slides_mobile .wp_vimeo_single_slide {
+    display: block !important;
+}
+
+@media (min-width: 769px) {
+    .wp_vimeo_slides_mobile {
+        display: none;
+    }
+    .wp_vimeo_slides_desktop {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .wp_vimeo_slides_mobile {
+        display: block;
+    }
+
+    .wp_vimeo_slides_desktop {
+        display: none;
+    }
+
+    .wp_vimeo_profile_pic {
+        width: 250px !important;
+        margin: 0 auto;
+    }
+}

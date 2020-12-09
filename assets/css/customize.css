@@ -267,3 +267,46 @@ button:hover {
 .wp_vimeo_edit_bio_name input {
     margin-right: 15px;
 }
+
+/* Mobile Nav Bar Customizations */
+.fusion-flyout-search-toggle {
+    display: none !important;
+}
+
+.fusion-mobile-nav-item {
+	text-transform: uppercase;
+}
+
+.fusion-mobile-nav-item .dropdown img {
+	width: 20px;
+	height: 20px;
+	margin-right: 15px;
+	margin-top: 3px;
+}
+
+.fusion-mobile-nav-item .dropdown {
+	margin-top: 10px;
+	font-size: 16px;
+	color: #88929E;
+}
+
+.fusion-mobile-nav-item .dropdown .dropdown-content {
+	padding: 0;
+}
+
+.fusion-mobile-nav-item .dropdown .dropdown-content p {
+	margin: 0;
+}
+
+.fusion-mobile-nav-item .dropdown .dropdown-content p a {
+	font-weight: 400;
+	font-family: 'Poppins', sans-serif;
+}
+
+.fusion-main-menu .menu-item {
+    display: none;
+}
+
+.fusion-main-menu .menu-item.custom_menu_item {
+    display: block;
+}

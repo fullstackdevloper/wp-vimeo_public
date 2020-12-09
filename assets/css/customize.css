@@ -115,6 +115,10 @@ textarea {
     color: black !important;
 }
 
+.wp_vimeo_note_date input {
+    max-width: 266px;
+}
+
 .fusion-menu li span,
 .fusion-menu .logout_class a {
     font-family: 'Poppins', sans-serif;
@@ -233,3 +237,33 @@ h3.wp_vimeo_heading {
     margin-left: 0;
 }
 
+.wp_vimeo_dashboard_note .wp_vimeo_btn {
+    margin-right: 15px;
+    padding: 5px 10px;
+}
+
+.wp_vimeo_dashboard_note button:last-child {
+    margin-right: 0;
+    padding: 10px;
+}
+
+.wp_vimeo_note_content {
+    padding-right: 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.wp_vimeo_cancel_profile_edit {
+    margin-left: 0;
+}
+
+.wp_vimeo_edit_bio_name {
+    display: flex;
+    justify-items: start;
+}
+
+.wp_vimeo_edit_bio_name input {
+    margin-right: 15px;
+}

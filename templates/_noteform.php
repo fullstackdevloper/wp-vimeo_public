@@ -26,7 +26,7 @@
 				<div class="note_btn_left">
 					<a class="wp_vimeo_btn" onclick="wpVimeo.noteTemplate('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Note Template', 'wp-vimeo'); ?></a>
 					<a class="wp_vimeo_btn" onclick="wpVimeo.lessonTemplate('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Lesson Template', 'wp-vimeo'); ?></a>
-					<a class="wp_vimeo_btn" onclick="wpVimeo.noteClear('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('clear', 'wp-vimeo'); ?></a>
+					<a class="wp_vimeo_btn" onclick="wpVimeo.noteClear('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Clear', 'wp-vimeo'); ?></a>
 				</div>
 				<div class="note_btn_right">
 					<a class="wp_vimeo_btn" onclick="wpVimeo.closepopup(this);" href="javascript:void(0);"><?php _e('Cancel', 'wp-vimeo'); ?></a>

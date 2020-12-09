@@ -31,26 +31,33 @@
                     <input type="hidden" name="action" value="wp_vimeo_update_info"/>
                     <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
 
-					<div class="wp_vimeo_row">
-
-					<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
-						<input type="text" wp_vimeo_validation="required" value="<?php print get_user_meta($user->ID, 'child_first_name', true); ?>" placeholder="Child First Name" name="wp_vimeo_profile[child_first_name]" class="wp_vimeo_input">
-					</div>
-
-					<div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
-						<input type="text" wp_vimeo_validation="required" value="<?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?>" placeholder="User Last Name" name="wp_vimeo_profile[lastname]" class="wp_vimeo_input">
-					</div>
-
-					</div>
-
-                    <div class="wp_vimeo_note_date wp_vimeo_fieldwrap">
-                        <input type="text" placeholder="Child's Date of Birth" name="wp_vimeo_profile[dob]" value="<?php print get_user_meta($user->ID, 'wp_vimeo_dob', true); ?>" class="wp_vimeo_input wp_vimeo_datepicker">
+                    <div class="wp_vimeo_row">
+                        <label>Child's Name</label>
                     </div>
-                    <div class="wp_vimeo_note_date wp_vimeo_fieldwrap">
+					<div class="wp_vimeo_row">
+                        <div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap wp_vimeo_edit_bio_name">
+                            <input type="text" wp_vimeo_validation="required" value="<?php print get_user_meta($user->ID, 'child_first_name', true); ?>" placeholder="Child First Name" name="wp_vimeo_profile[child_first_name]" class="wp_vimeo_input">
+                            <input type="text" wp_vimeo_validation="required" value="<?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?>" placeholder="Family Last Name" name="wp_vimeo_profile[lastname]" class="wp_vimeo_input">
+                        </div>
+                    </div>
+
+                    <div class="wp_vimeo_row">
+                        <label>Date of Birth</label>
+                    </div>
+					<div class="wp_vimeo_row wp_vimeo_edit_bio">
+                        <div class="wp_vimeo_col_12 wp_vimeo_note_date wp_vimeo_fieldwrap">
+                            <input type="text" placeholder="Child's Date of Birth" name="wp_vimeo_profile[dob]" value="<?php print get_user_meta($user->ID, 'wp_vimeo_dob', true); ?>" class="wp_vimeo_input wp_vimeo_datepicker">
+                        </div>
+                    </div>
+
+                    <div class="wp_vimeo_row">
+                        <label>Bio</label>
+                    </div>
+                    <div class="wp_vimeo_note_description wp_vimeo_fieldwrap">
                         <textarea rows="5" name="wp_vimeo_profile[description]" placeholder="Please tell us a bit about your child" class="wp_vimeo_input_textarea"><?php print get_user_meta($user->ID, 'description', true); ?></textarea>
                     </div>
                     <div class="wp_vimeo_row wp_vimeo_modal_btns">
-                        <a class="wp_vimeo_btn wp_vimeo_calcel_profile_edit"  href="javascript:void(0);"><?php _e('Cancel', 'wp-vimeo'); ?></a>
+                        <a class="wp_vimeo_btn wp_vimeo_cancel_profile_edit" href="javascript:void(0);"><?php _e('Cancel', 'wp-vimeo'); ?></a>
                         <button type="submit" class="wp_vimeo_btn wp_vimeo_btn_blue"><?php _e('Save', 'wp-vimeo'); ?></button>
                     </div>
                 </form>
@@ -86,8 +93,15 @@
                         <?php wp_editor("", 'wp_vimeo_note_content', ['textarea_name' => 'wp_vimeo_note[content]', 'textarea_rows' => 10]); ?>
                     </div>
                 </div>
-                <div class="wp_vimeo_row">
-                    <button type="submit" class="wp_vimeo_btn wp_vimeo_btn_blue"><?php _e('Save', 'wp-vimeo'); ?></button>
+                <div class="wp_vimeo_row wp_vimeo_dashboard_note">
+                    <div class="note_btn_left">
+                        <a class="wp_vimeo_btn" onclick="wpVimeo.noteTemplate('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Note Template', 'wp-vimeo'); ?></a>
+                        <a class="wp_vimeo_btn" onclick="wpVimeo.lessonTemplate('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Lesson Template', 'wp-vimeo'); ?></a>
+                        <a class="wp_vimeo_btn" onclick="wpVimeo.noteClear('wp_vimeo_note_content');" href="javascript:void(0);"><?php _e('Clear', 'wp-vimeo'); ?></a>
+                    </div>
+                    <div class="note_btn_right">
+                        <button type="submit" class="wp_vimeo_btn wp_vimeo_btn_blue"><?php _e('Save', 'wp-vimeo'); ?></button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -114,7 +128,7 @@
             <?php endforeach; ?>
         </div>
         <?php if(!$videoPosts->found_posts): ?>
-            <div class="wp_vimeo_nodata"><?php _e("No video found. please upload some videos", 'wp_vimeo'); ?></div>
+            <div class="wp_vimeo_nodata"><?php _e("No videos found. Please upload one.", 'wp_vimeo'); ?></div>
         <?php endif; ?>
     </div>
     <div class="wp_vimeo_profile_notes">
@@ -136,7 +150,18 @@
             <?php endforeach; ?>
         </div>
         <?php if(!$notePosts->found_posts): ?>
-            <div class="wp_vimeo_nodata"><?php _e("nothing found. please add some notes", 'wp_vimeo'); ?></div>
+            <div class="wp_vimeo_nodata"><?php _e("No notes found. Please create one.", 'wp_vimeo'); ?></div>
         <?php endif; ?>
     </div>
-</div><div id="wp_vimeo_video_view" class="wp_vimeo_modal">    <div class="wp_vimeo_modal_view">        <a href="javascript:void();" class="wp_vimeo_close" onclick="wpVimeo.closepopup('wp_vimeo_video_view');">            <svg width="12" height="12" viewport="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">                <line x1="1" stroke="#000" y1="11" x2="11" y2="1" stroke-width="2"></line>                <line x1="1" y1="1" stroke="#000" x2="11" y2="11" stroke-width="2"></line>            </svg>        </a>        <div id="video_frame_append">				</div>    </div></div>
+</div>
+<div id="wp_vimeo_video_view" class="wp_vimeo_modal">
+    <div class="wp_vimeo_modal_view">
+        <a href="javascript:void();" class="wp_vimeo_close" onclick="wpVimeo.closepopup('wp_vimeo_video_view');">
+            <svg width="12" height="12" viewport="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <line x1="1" stroke="#000" y1="11" x2="11" y2="1" stroke-width="2"></line>
+                <line x1="1" y1="1" stroke="#000" x2="11" y2="11" stroke-width="2"></line>
+            </svg>
+        </a>
+        <div id="video_frame_append"></div>
+    </div>
+</div>

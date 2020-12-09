@@ -36,7 +36,7 @@ var wpVimeo;
         $(".wp_vimeo_profile_form").show();
       });
 
-      $(document).on("click", ".wp_vimeo_calcel_profile_edit", function () {
+      $(document).on("click", ".wp_vimeo_cancel_profile_edit", function () {
         $(".wp_vimeo_profile_info").show();
         $(".wp_vimeo_profile_form").hide();
       });

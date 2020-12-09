@@ -307,6 +307,6 @@ var wpVimeo;
 
 jQuery(document).ready(function(){
 	jQuery('.deselect').on('click',function(){
-		jQuery(this).parent().find('option').prop('selected', jQuery(this).hasClass('select')).parent().trigger('chosen:updated');
+		jQuery("#multi_tag").find('option').prop('selected', jQuery(this).hasClass('select')).parent().trigger('chosen:updated');
 	});
 });

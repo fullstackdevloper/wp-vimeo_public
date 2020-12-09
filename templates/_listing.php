@@ -58,24 +58,30 @@
                         // Only show tags if it is a video type
                         if ($videoLink):
                     ?>
-					<div class="wp_vimeo_col_8 wp_vimeo_note_title wp_vimeo_fieldwrap">
-						<label><?php _e('Tags', 'wp-vimeo'); ?></label>
-						<?php
-								$video_vimeo_tags = get_post_meta($post->ID, 'tag_option', true);
-                                $vimeo_tags = explode(",", $video_vimeo_tags);
-
-								$childName = get_user_meta($user->ID, 'child_first_name', true).' '.get_user_meta($user->ID, 'vimeo_last_name', true);
+					<div class="wp_vimeo_row">
+						<div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
+							<label><?php _e('Tags', 'wp-vimeo'); ?></label>
+						</div>
+					</div>
+					<div class="wp_vimeo_row">
+					<div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
+						
+						<?php 
+								$videovimotags = get_post_meta($post->ID, 'tag_option', true);
+								$vimeo_tags = explode(",", $videovimotags);
+								
+								$complete_name = get_user_meta($user->ID, 'child_first_name', true).' '.get_user_meta($user->ID, 'vimeo_last_name', true);
 						?>
 						<select id="multi_tag" data-placeholder="Select multiple tags" name="wp_vimeo_video[tag_option][]" multiple class="wp_vimeo_input chosen-select">
-                        <?php
-                            $hasMilestone = !in_array('Milestone', $vimeo_tags) ? '' : 'selected="selected"';
-                            $hasChildName = !in_array($childName, $vimeo_tags) ? '' : 'selected="selected"';
-
-                            echo "<option value='Milestone' $hasMilestone>Milestone</option>";
-                            echo "<option value='$childName' $hasChildName>$childName</option>";
-                        ?>
+						<option value="<?php print $complete_name; ?>" <?php if(in_array($complete_name,$vimeo_tags)){ echo 'selected="selected"';} ?>><?php print $complete_name; ?></option>
+						
+						<option value="Milestone" <?php if(in_array('Milestone',$vimeo_tags)){ echo 'selected="selected"';} ?>><?php _e('Milestone', 'wp-vimeo'); ?></option>
 						</select>
-                    </div>
+						
+						<a href="javascript:;" class="deselect">Deselect All</a>
+					</div>
+					
+                </div>
 					<div class="wp_vimeo_col_4 wp_vimeo_note_title wp_vimeo_fieldwrap">
 						<a href="javascript:void();" class="deselect">Deselect All</a>
 					</div>

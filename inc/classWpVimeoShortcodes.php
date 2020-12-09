@@ -29,6 +29,7 @@ class WpVimeoShortcode
         add_shortcode('wp-vimeo-signup', [$this, 'signupForm']);
         add_shortcode('wp-vimeo-login', [$this, 'loginForm']);
         add_shortcode('wp-vimeo-reset', [$this, 'resetForm']);
+        add_shortcode('wp-vimeo-childGallery', [$this, 'childGallery']);
 
         /**
          * Shortcode to display the list of videos uploaded in user account
@@ -89,6 +90,9 @@ class WpVimeoShortcode
             return $html;
         }
     }
+	 /**
+     * Wp Vimeo shortcode to display the user register form
+     */
     public function signupForm()
     {
         if (is_user_logged_in()) {
@@ -100,6 +104,9 @@ class WpVimeoShortcode
             return $html;
         }
     }
+	 /**
+     * Wp Vimeo shortcode to append user login form
+     */
     public function loginForm()
     {
         if (is_user_logged_in()) {
@@ -109,6 +116,9 @@ class WpVimeoShortcode
             return $html;
         }
     }
+	 /**
+     * Wp Vimeo shortcode to reset password form
+     */
     public function resetForm()
     {
         if (is_user_logged_in()) {
@@ -118,6 +128,22 @@ class WpVimeoShortcode
             return $html;
         }
     }
+	 /**
+     * Wp Vimeo shortcode to display the children profile gallery
+     */
+	public function childGallery(){
+		
+		if (is_user_logged_in()) {
+            return WpVimeo()->engine->getView('childgallery');
+        } else {
+            // display a unauthentication message
+            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message-dashboard', __('Please login to view children Gallery.', 'wp-vimeo')));
+            $html.= WpVimeo()->engine->getView('login');
+
+            return $html;
+        }
+		
+	}
 }
 
 return new WpVimeoShortcode();

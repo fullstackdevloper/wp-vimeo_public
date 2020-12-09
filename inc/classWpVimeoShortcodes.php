@@ -133,16 +133,7 @@ class WpVimeoShortcode
      */
 	public function childGallery(){
 		
-		if (is_user_logged_in()) {
-            return WpVimeo()->engine->getView('childgallery');
-        } else {
-            // display a unauthentication message
-            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message-dashboard', __('Please login to view children Gallery.', 'wp-vimeo')));
-            $html.= WpVimeo()->engine->getView('login');
-
-            return $html;
-        }
-		
+		return WpVimeo()->engine->getView('childgallery');		
 	}
 }
 

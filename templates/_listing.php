@@ -66,18 +66,24 @@
 					<div class="wp_vimeo_row">
                         <div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
                             <?php
-                                    $videovimotags = get_post_meta($post->ID, 'tag_option', true);
-                                    $vimeo_tags = explode(",", $videovimotags);
+                                    $video_vimeo_tags = get_post_meta($post->ID, 'tag_option', true);
+                                    $vimeo_tags = explode(",", $video_vimeo_tags);
 
-                                    $complete_name = get_user_meta($user->ID, 'child_first_name', true).' '.get_user_meta($user->ID, 'vimeo_last_name', true);
+                                    $childName = get_user_meta($user->ID, 'child_first_name', true).' '.get_user_meta($user->ID, 'vimeo_last_name', true);
                             ?>
                             <select id="multi_tag" data-placeholder="Select multiple tags" name="wp_vimeo_video[tag_option][]" multiple class="wp_vimeo_input chosen-select">
-                            <option value="<?php print $complete_name; ?>" <?php if(in_array($complete_name,$vimeo_tags)){ echo 'selected="selected"';} ?>><?php print $complete_name; ?></option>
+                            <?php
+                                $hasMilestone = !in_array('Milestone', $vimeo_tags) ? '' : 'selected="selected"';
+                                $hasChildName = !in_array($childName, $vimeo_tags) ? '' : 'selected="selected"';
 
-                            <option value="Milestone" <?php if(in_array('Milestone',$vimeo_tags)){ echo 'selected="selected"';} ?>><?php _e('Milestone', 'wp-vimeo'); ?></option>
+                                echo "<option value='Milestone' $hasMilestone>Milestone</option>";
+                                echo "<option value='$childName' $hasChildName>$childName</option>";
+                            ?>
                             </select>
 
-                            <a href="javascript:void();" class="deselect">Deselect All</a>
+                            <div class="wp_vimeo_col_4 wp_vimeo_note_title wp_vimeo_fieldwrap">
+                                <a href="javascript:void();" class="deselect">Deselect All</a>
+                            </div>
                         </div>
                     </div>
                     <?php endif; ?>

@@ -73,6 +73,10 @@ class WpVimeoOptions {
         );
 
         add_settings_field(
+            'wp_vimeo_google_recaptcha_key', __('Google reCAPTCHA Key', 'googleRecaptcha'), [$this, 'wp_vimeo_google_recaptcha_key'], 'wp_vimeo_options', 'wp_vimeo_general'
+        );
+
+        add_settings_field(
                 'wp_vimeo_listing_page', __('Video Listing Page', 'kidcircle'), [$this, 'wp_vimeo_listing_page'], 'wp_vimeo_options', 'wp_vimeo_general'
         );
 
@@ -116,6 +120,15 @@ class WpVimeoOptions {
     public function wp_vimeo_api_access_token() {
         ?>
         <input type='text' style="width:50%; min-width:300px;" name='wp_vimeo_options[vimeo_access_token]' value='<?php $this->displayValue('vimeo_access_token'); ?>'>
+        <?php
+    }
+
+    /**
+     * Vimeo client access token Input box
+     */
+    public function wp_vimeo_google_recaptcha_key() {
+        ?>
+        <input type='text' style="width:50%; min-width:300px;" name='wp_vimeo_options[google_recaptcha_key]' value='<?php $this->displayValue('google_recaptcha_key'); ?>'>
         <?php
     }
 

@@ -42,7 +42,11 @@
                             <input type="password" wp_vimeo_validation="equalto" data-matching-field='#wp_vimeo_password' class="wp_vimeo_input" name="wp_vimeo_register[confirm_password]" placeholder="Re-enter Password"/>
                         </div>
                         <div class="wp_vimeo_fieldwrap">
-                            <div class="g-recaptcha" data-sitekey="6LfNWvsZAAAAAN3a3eLenYApMlnF2j5eZcQYzBMt"></div>
+                            <?php
+                                global $wpVimeoSettings;
+                                $googleRecaptchaKey = $wpVimeoSettings['google_recaptcha_key'];
+                            ?>
+                            <div class="g-recaptcha" data-sitekey="<?php _e($googleRecaptchaKey) ?>"></div>
                         </div>
                     </div>
                 </div>

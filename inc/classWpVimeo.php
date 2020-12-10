@@ -149,15 +149,18 @@ class WpVimeo {
 		wp_enqueue_style('wp_vimeo_slider_chosen', WP_VIMEO_URL.'/assets/css/chosen.min.css', false, WP_VIMEO_VERSION, false);
 		
 		wp_enqueue_style('wp_vimeo_gallery', WP_VIMEO_URL.'/assets/css/slide.css', false, WP_VIMEO_VERSION, false);
+		wp_enqueue_style('wp_vimeo_lightgallery', WP_VIMEO_URL.'/assets/css/lightgallery.css', false, WP_VIMEO_VERSION, false);
 		
         wp_enqueue_style('wp_vimeo_style', WP_VIMEO_URL . "/assets/css/wp-vimeo{$this->suffix}.css", array('wp_vimeo_slider', 'wp_vimeo_slider_theme'), WP_VIMEO_VERSION);
-        
-        wp_localize_script('wp_vimeo_script', 'wp_vimeo', array(
+        if(isset($post->ID)){
+			  wp_localize_script('wp_vimeo_script', 'wp_vimeo', array(
                 'ajax_url' => admin_url('admin-ajax.php'),
                 "permalink" => get_permalink($post->ID),
                 '_wpnonce' => wp_create_nonce('km_nonce_' . $post->ID),
-            )
-        );
+				)
+			);
+		}
+      
     }
 
     public function wpVimeoAdminScripts() {

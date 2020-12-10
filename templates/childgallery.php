@@ -1,20 +1,31 @@
-<div id="gallery">
-    <!-- <div id="slide">
-        <a class="prev">❮</a>
-        <a class="next">❯</a>
-        <img id='preview' />
-    </div> -->
+<div id="wp-vimeo_gallery">
+    
 
-    <div id="thumbnails">
-        <div class="wrapper">
-        <?php
+<div class="demo-gallery">
+            <ul id="lightgallery" class="list-unstyled row">
+			
+			<?php 
             $all_subscribers = get_users([ 'role__in' => [ 'author', 'subscriber' ] ] );
 
             foreach($all_subscribers as $all_subscriber){
-                echo $user_link = get_avatar( $all_subscriber->data->ID, $size = 960,'',$all_subscriber->data->user_login, ['class'=>'thumbnail']);
-            }
-        ?>
-
+                $user_link = get_avatar_url( $all_subscriber->data->ID,960);
+                $user_thumb_link = get_avatar_url( $all_subscriber->data->ID,96);
+            ?>
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="<?php echo $user_link; ?>" data-src="<?php echo $user_link; ?>">
+                    <a href="">
+                        <img class="img-responsive" width="150" height="150" attr="" src="<?php echo $user_thumb_link; ?>">
+                    </a>
+					<span><?php echo $all_subscriber->data->user_login; ?></span>
+                </li>
+             <?php   } 	?>
+            </ul>
         </div>
-    </div>
+
+
+
+	<script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery('#lightgallery').lightGallery();
+        });
+        </script>
 </div>

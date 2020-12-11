@@ -117,6 +117,40 @@ var wpVimeo;
         slidesToScroll: 1,
       });
     },
+    initSlickSlider: function () {
+      $(".wp_vimeo_child_gallery").slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        cssEase: "linear",
+        slidesToShow: 1,
+        slidesToScroll: 1,
+		responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+
+		]
+      });
+    },
     noteDescription: function (noteId) {
       $this.ajaxCall(
         wp_vimeo.ajax_url,

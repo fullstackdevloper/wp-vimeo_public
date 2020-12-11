@@ -570,3 +570,23 @@ h3.page-numbers {
 		margin-left: 0;
 }
 }
+
+.wp_vimeo_single_slide {
+    display: grid !important;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+}
+.wp_vimeo_single_slide img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.wp_vimeo_single_slide .child_gallery_h {
+    text-align: center;
+}
+.wp_vimeo_slides {
+    max-width: 500px;
+    margin: 0 auto;
+}

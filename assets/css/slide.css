@@ -50,3 +50,6 @@
     margin: 0;
     border: none;
 }
+#media {
+	min-height:500px;
+}

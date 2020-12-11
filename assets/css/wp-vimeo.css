@@ -200,6 +200,11 @@ p.wp_vimeo_date {
     margin-right: 5px;
 }
 
+.wp_vimeo_modal_btns .wp_vimeo_btn:last-child {
+    margin-right: 0;
+}
+
+
 .wp_vimeo_modal {
     position: fixed;
     z-index: 9999999;
@@ -568,7 +573,7 @@ h3.page-numbers {
 	}
 	.reset_filter {
 		margin-left: 0;
-}
+    }
 }
 
 .wp_vimeo_single_slide {

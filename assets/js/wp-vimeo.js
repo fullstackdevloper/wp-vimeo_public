@@ -21,7 +21,7 @@ var wpVimeo;
       $this.initValidation();
       $this.Events();
       $this.initSlickSlider();
-      $this.initSlickSliderMobile();
+      $this.initSlickSliderDashboard();
     },
     Events: function () {
       $(document).on("change", "#wp_vimeo_profile_field", function () {
@@ -95,6 +95,39 @@ var wpVimeo;
         changeYear: true,
         changeMonth: true,
         yearRange: "1980:c",
+      });
+    },
+    initSlickSliderDashboard: function () {
+      $(".wp_vimeo_slides_dashboard").slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        cssEase: "linear",
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+          {
+              breakpoint: 1024,
+              settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3,
+              }
+          },
+          {
+              breakpoint: 600,
+              settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+              }
+          },
+          {
+              breakpoint: 480,
+              settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+              }
+          }
+      ]
       });
     },
     initSlickSlider: function () {

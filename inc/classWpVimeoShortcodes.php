@@ -132,8 +132,7 @@ class WpVimeoShortcode
      * Wp Vimeo shortcode to display the children profile gallery
      */
 	public function childGallery(){
-		
-		return WpVimeo()->engine->getView('childgallery');		
+		return WpVimeo()->engine->getView('childgallery');
 	}
 }
 

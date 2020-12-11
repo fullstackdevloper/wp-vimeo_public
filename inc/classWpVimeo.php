@@ -48,7 +48,7 @@ class WpVimeo {
     }
 
     /**
-     * WpVimeo Constructor. 
+     * WpVimeo Constructor.
      */
     function __construct() {
         global $wpVimeoSettings;
@@ -88,7 +88,7 @@ class WpVimeo {
      */
 
     public function wp_vimeo_plugin_install() {
-        
+
     }
 
     /**
@@ -130,27 +130,29 @@ class WpVimeo {
     public function wpVimeoScripts() {
         global $post;
         wp_register_script( 'wp_vimeo_slider', WP_VIMEO_URL . '/assets/js/slick.min.js', array( 'jquery' ), WP_VIMEO_VERSION, true );
-			
-		
+
+
         wp_enqueue_script('wp_vimeo_script', WP_VIMEO_URL . "/assets/js/wp-vimeo{$this->suffix}.js", array('jquery', 'jquery-ui-datepicker', 'wp_vimeo_slider'), WP_VIMEO_VERSION);
-		
+
 		wp_enqueue_script('wp_vimeo_chosen', WP_VIMEO_URL . "/assets/js/chosen.jquery.min.js", array('jquery'), WP_VIMEO_VERSION, true);
-		
-		
+
+
 		wp_enqueue_script('wp_vimeo_api', "https://www.google.com/recaptcha/api.js", array('jquery'), WP_VIMEO_VERSION, true);
-	
+
 		wp_register_style( 'wp_vimeo_slider', WP_VIMEO_URL . '/assets/css/slick.min.css', false, WP_VIMEO_VERSION);
-		
+
         wp_register_style( 'wp_vimeo_slider_theme', WP_VIMEO_URL . '/assets/css/slick-theme.css', false, WP_VIMEO_VERSION);
-        
+
 		wp_enqueue_style('e2b-admin-ui-css', WP_VIMEO_URL.'/assets/css/jquery-ui.css', false, WP_VIMEO_VERSION, false);
-		
+
 		wp_enqueue_style('wp_vimeo_slider_chosen', WP_VIMEO_URL.'/assets/css/chosen.min.css', false, WP_VIMEO_VERSION, false);
-		
+
 		wp_enqueue_style('wp_vimeo_gallery', WP_VIMEO_URL.'/assets/css/slide.css', false, WP_VIMEO_VERSION, false);
-		
-		
+
         wp_enqueue_style('wp_vimeo_style', WP_VIMEO_URL . "/assets/css/wp-vimeo{$this->suffix}.css", array('wp_vimeo_slider', 'wp_vimeo_slider_theme'), WP_VIMEO_VERSION);
+
+		wp_enqueue_style('wp_vimeo_custom', WP_VIMEO_URL.'/assets/css/custom.css', false, WP_VIMEO_VERSION, false);
+
         if(isset($post->ID)){
 			  wp_localize_script('wp_vimeo_script', 'wp_vimeo', array(
                 'ajax_url' => admin_url('admin-ajax.php'),
@@ -159,7 +161,7 @@ class WpVimeo {
 				)
 			);
 		}
-      
+
     }
 
     public function wpVimeoAdminScripts() {
@@ -222,7 +224,7 @@ class WpVimeo {
             return $avatar;
         }
         $user_id = $user->ID;
-        
+
         // Build classes array based on passed in args, else set defaults - see get_avatar in /wp-includes/pluggable.php.
         $classes = array(
             'avatar',
@@ -268,7 +270,7 @@ class WpVimeo {
      * @return array $args Overridden URL or default if none can be found
      * */
     public function pre_avatar_override($args, $id_or_email) {
-        
+
         // Get user data.
         if (is_numeric($id_or_email)) {
             $user = get_user_by('id', (int) $id_or_email);
@@ -308,10 +310,10 @@ class WpVimeo {
             return $args;
         }*/
         $args['url'] = $avatar_image;
-        
+
         return $args;
     }
-    
+
     /**
     * Template tag for outputting a profile image.
     *
@@ -323,7 +325,7 @@ class WpVimeo {
     */
     public function wpVimeoProfilePic( $user_id, $args = array() ) {
            $profile_post_id = absint( get_user_option( 'wp_vimeo_profile_attachment', $user_id ) );
-           
+
            $defaults = array(
                    'size' => 'thumbnail',
                    'attr' => '',

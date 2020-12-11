@@ -1,0 +1,8 @@
+/* Styles that only belong to specialneeds.adaptedspiralpraxis.com, not disability.adaptedspiralpraxis.com */
+#mobile-menu-item-1316, #mobile-menu-item-1345 {
+	display: none;
+}
+
+.fusion-header-has-flyout-menu .fusion-flyout-mobile-menu-icons {
+    margin-top: 0 !important;
+}

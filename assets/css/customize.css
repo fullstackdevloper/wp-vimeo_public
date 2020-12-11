@@ -332,30 +332,65 @@ button:hover {
     font-weight: 500;
 }
 
-.wp_vimeo_slides_mobile .wp_vimeo_single_slide {
+.wp_vimeo_slides_dashboard {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+
+.wp_vimeo_slides_dashboard .wp_vimeo_single_slide {
     display: block !important;
 }
 
-@media (min-width: 769px) {
-    .wp_vimeo_slides_mobile {
-        display: none;
-    }
-    .wp_vimeo_slides_desktop {
-        display: block;
-    }
+.wp_vimeo_slides_dashboard .wp_vimeo_single_slide img {
+    border-radius: 0;
+		width: 320px;
+		height: 180px;
 }
 
+.wp_vimeo_videoform .wp_vimeo_col_6 {
+	padding-right: 0;
+}
+
+.wp_vimeo_videoform .wp_vimeo_input, .wp_vimeo_videoform .wp_vimeo_input_textarea {
+	padding-right: 0 !important;
+	margin: 0 !important;
+}
+
+.wp_vimeo_videoform .wp_vimeo_search {
+	margin-right: 0;
+}
+
+	.wp_vimeo_slides h5.wp_vimeo_slide_title  {
+		white-space: nowrap !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+	}
+
 @media (max-width: 768px) {
-    .wp_vimeo_slides_mobile {
-        display: block;
-    }
-
-    .wp_vimeo_slides_desktop {
-        display: none;
-    }
-
     .wp_vimeo_profile_pic {
         width: 250px !important;
         margin: 0 auto;
     }
+
+    #video_frame_append {
+        width: 100%;
+        height: 400px;
+    }
+
+    #video_frame_append iframe {
+        width: 100% !important;
+        height: 400px;
+    }
+
+	.wp_vimeo_modal_view {
+		width: 95%;
+	}
+
+	.wp_vimeo_slides h5.wp_vimeo_slide_title  {
+		font-size: 1em !important;
+		white-space: nowrap !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+	}
 }

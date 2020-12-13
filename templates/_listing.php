@@ -81,17 +81,17 @@
                             ?>
                             </select>
 
-                            <div class="wp_vimeo_col_4 wp_vimeo_note_title wp_vimeo_fieldwrap">
-                                <a href="javascript:void();" class="deselect">Deselect All</a>
-                            </div>
                         </div>
+                            <div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
+                                <a href="javascript:void();" class="deselect wp_vimeo_btn">Deselect All</a>
+                            </div>
                     </div>
                     <?php endif; ?>
 
                 </div>
                     <div class="wp_vimeo_row">
                         <div class="wp_vimeo_note_content wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
-                           	<label>Description</label>
+                           	<label><?php $videoLink ? _e('Caption') : _e('Description') ?></label>
 
 						    <div class="wp_vimeo_note_content wp_vimeo_fieldwrap">
 							    <?php wp_editor($post->post_content, 'wp_vimeo_note_content_edit_'.$post->ID, ['textarea_name' => 'wp_vimeo_video[caption]', 'textarea_rows' => 10, 'textarea_class'=>'wp_vimeo_input', 'textarea_wp_vimeo_validation'=>'required']); ?>

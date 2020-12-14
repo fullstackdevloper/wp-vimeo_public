@@ -1,4 +1,4 @@
-<div id="wp_vimeo_videoform" class="wp_vimeo_modal">
+<div id="wp_vimeo_videoform" class="wp_vimeo_modal wp_vimeo_video_upload_form">
     <div class="wp_vimeo_modal_content">
         <a href="javascript:void();" class="wp_vimeo_close" onclick="wpVimeo.closepopup(this);">
             <svg width="12" height="12" viewport="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@
                     <input type="file" name="wp_vimeo_video[file]" wp_vimeo_validation="required" class="wp_vimeo_file_input">
                 </div>
                 <div class="wp_vimeo_col_6 wp_vimeo_note_title wp_vimeo_fieldwrap">
-                    <input type="text" placeholder="Video Caption" name="wp_vimeo_video[caption]" class="wp_vimeo_input">
+                    <input type="text" placeholder="Video Caption" name="wp_vimeo_video[caption]" class="wp_vimeo_input wp_vimeo_caption">
                 </div>
 
             </div>

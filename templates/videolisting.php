@@ -15,7 +15,7 @@
                     <?php print $this->getView('_noteform'); ?>
                 </div>
             </div>
-            <div class="wp_vimeo_row">
+            <div class="wp_vimeo_row wp_vimeo_filters">
                 <div class="wp_vimeo_sort wp_vimeo_col_3 wp_vimeo_fieldwrap">
                     <label><?php _e('Sort By', 'wp-vimeo'); ?></label>
                     <select name="wp_vimeo_sortby" id="wp_vimeo_sortby" class="wp_vimeo_input">
@@ -36,7 +36,6 @@
                 <div id="" class="wp_vimeo_filter wp_vimeo_col_3 wp_vimeo_fieldwrap">
                     <label><?php _e('Filter By Tag', 'wp-vimeo'); ?></label>
                     <select name="wp_vimeo_sortbytag[]" id="wp_vimeo_sortbytag" multiple class="wp_vimeo_input chosen-select">
-                    <option value="">-Filter By Tag-</option>
                     <option value="<?php print get_user_meta($user->ID, 'child_first_name', true); ?> <?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?>"><?php print get_user_meta($user->ID, 'child_first_name', true); ?> <?php print get_user_meta($user->ID, 'vimeo_last_name', true); ?></option>
                     <option value="milestone"><?php _e('Milestone', 'wp-vimeo'); ?></option>
                     </select>

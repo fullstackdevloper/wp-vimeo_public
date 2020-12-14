@@ -225,6 +225,7 @@ h3.wp_vimeo_heading {
 /* Multi-select */
 .chosen-container-multi .chosen-choices {
     padding: 3px 5px;
+    height: 39px;
 }
 
 .fusion-logo img {
@@ -378,6 +379,10 @@ edit note modal */
     display: flex;
 }
 
+.wp_vimeo_video_upload_form .wp_vimeo_row {
+    display: flex;
+}
+
 .wp_vimeo_videoform a.deselect.wp_vimeo_btn {
     margin-left: 10px !important;
 }
@@ -388,8 +393,16 @@ edit note modal */
     text-overflow: ellipsis !important;
 }
 
+.wp_vimeo_filters .wp_vimeo_filter:last-child {
+    padding-bottom: 25px;
+}
+
 .chosen-container-multi .chosen-choices li.search-field {
     display: none;
+}
+
+input.wp_vimeo_caption {
+    width: 100% !important;
 }
 
 @media (max-width: 768px) {

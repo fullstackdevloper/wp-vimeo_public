@@ -225,6 +225,7 @@ p.wp_vimeo_date {
     background: #fff;
     border-radius: 3px;
     max-width: 100%;
+    top: 10%;
 }
 
 .wp_vimeo_modal_view {

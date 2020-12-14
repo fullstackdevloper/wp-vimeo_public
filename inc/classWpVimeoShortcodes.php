@@ -68,7 +68,7 @@ class WpVimeoShortcode
             return WpVimeo()->engine->getView('videolisting', ['arg' => $arguments]);
         } else {
             // display a unauthentication message
-            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message', __('Please login to view videos.', 'wp-vimeo')));
+            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentication-message', __('Please login to view videos.', 'wp-vimeo')));
             $html.= WpVimeo()->engine->getView('login');
 
             return $html;
@@ -84,56 +84,65 @@ class WpVimeoShortcode
             return WpVimeo()->engine->getView('dashboard');
         } else {
             // display a unauthentication message
-            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message-dashboard', __('Please login to view your profile.', 'wp-vimeo')));
+            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentication-message-dashboard', __('Please login to view your profile.', 'wp-vimeo')));
             $html.= WpVimeo()->engine->getView('login');
 
             return $html;
         }
     }
-	 /**
-     * Wp Vimeo shortcode to display the user register form
-     */
+
+    /**
+    * Wp Vimeo shortcode to display the user register form
+    */
     public function signupForm()
     {
         if (is_user_logged_in()) {
             return WpVimeo()->engine->getView('dashboard');
         } else {
             /* display a unauthentication message*/
-            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message-dashboard', __('Please login to view your profile.', 'wp-vimeo')));
+            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentication-message-dashboard', __('Please login to view your profile.', 'wp-vimeo')));
             $html.= WpVimeo()->engine->getView('signup');
             return $html;
         }
     }
-	 /**
-     * Wp Vimeo shortcode to append user login form
-     */
+
+    /**
+    * Wp Vimeo shortcode to append user login form
+    */
     public function loginForm()
     {
         if (is_user_logged_in()) {
             return WpVimeo()->engine->getView('dashboard');
-        } else {            /* display a unauthentication message*/            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message-dashboard', __('Please login to view your profile.', 'wp-vimeo')));
+        } else {
+            /* display a unauthentication message*/
+            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentication-message-dashboard', __('Please login to view your profile.', 'wp-vimeo')));
             $html.= WpVimeo()->engine->getView('login');
             return $html;
         }
     }
-	 /**
-     * Wp Vimeo shortcode to reset password form
-     */
+
+    /**
+    * Wp Vimeo shortcode to reset password form
+    */
     public function resetForm()
     {
         if (is_user_logged_in()) {
             return WpVimeo()->engine->getView('dashboard');
-        } else {            /* display a unauthentication message*/            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentcation-message-dashboard', __('Reset password via username  OR Email.', 'wp-vimeo')));
+        } else {
+            /* display a unauthentication message*/
+            $html = wp_sprintf('<div class="wp_vimeo_auth_message">%s</div>', apply_filters('wp-vimeo-unauthentication-message-dashboard', __('Reset your password via username or email.', 'wp-vimeo')));
             $html.= WpVimeo()->engine->getView('resetpassword');
             return $html;
         }
     }
-	 /**
-     * Wp Vimeo shortcode to display the children profile gallery
-     */
-	public function childGallery(){
-		return WpVimeo()->engine->getView('childgallery');
-	}
+
+    /**
+    * Wp Vimeo shortcode to display the children profile gallery
+    */
+    public function childGallery()
+    {
+        return WpVimeo()->engine->getView('childgallery');
+    }
 }
 
 return new WpVimeoShortcode();

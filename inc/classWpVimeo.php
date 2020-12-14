@@ -1,6 +1,7 @@
 <?php
 
-class WpVimeo {
+class WpVimeo
+{
 
     /**
      * WpVimeo version.
@@ -40,7 +41,8 @@ class WpVimeo {
      * @static
      * @return WpVimeo.
      */
-    public static function instance() {
+    public static function instance()
+    {
         if (is_null(self::$_instance)) {
             self::$_instance = new self();
         }
@@ -50,7 +52,8 @@ class WpVimeo {
     /**
      * WpVimeo Constructor.
      */
-    function __construct() {
+    public function __construct()
+    {
         global $wpVimeoSettings;
         $wpVimeoSettings = get_option('wp_vimeo_options', true);
         $this->define_constants();
@@ -67,11 +70,12 @@ class WpVimeo {
      *
      * @since 1.0.0
      */
-    private function init_hooks() {
+    private function init_hooks()
+    {
         register_activation_hook(WP_VIMEO_PLUGIN_FILE, array($this, 'wp_vimeo_plugin_install'));
         add_action('init', array($this, 'init'), 0);
 
-		add_action('init', array($this, 'remove_admin_bar'), 0);
+        add_action('init', array($this, 'remove_admin_bar'), 0);
         /* register front end scripts */
         add_action('wp_enqueue_scripts', array($this, 'wpVimeoScripts'), 0);
 
@@ -87,21 +91,23 @@ class WpVimeo {
      * WpVimeo instalation hook
      */
 
-    public function wp_vimeo_plugin_install() {
-
+    public function wp_vimeo_plugin_install()
+    {
     }
 
     /**
      * Init plugin when WordPress Initialises.
      */
-    public function init() {
+    public function init()
+    {
         $this->engine->registerVideoPostType();
     }
 
     /**
      * Define WpVimeo Constants.
      */
-    private function define_constants() {
+    private function define_constants()
+    {
         $this->define('WP_VIMEO_ABSPATH', dirname(WP_VIMEO_PLUGIN_FILE) . '/');
         $this->define('WP_VIMEO_BASENAME', plugin_basename(WP_VIMEO_PLUGIN_FILE));
         $this->define('WP_VIMEO_URL', plugins_url(basename(WP_VIMEO_ABSPATH)));
@@ -111,7 +117,8 @@ class WpVimeo {
     /**
      * Include required core files used in admin and on the frontend.
      */
-    public function includes() {
+    public function includes()
+    {
         include_once WP_VIMEO_ABSPATH . '/vendor/autoload.php';
         include_once WP_VIMEO_ABSPATH . '/inc/classWpVimeoCore.php';
         include_once WP_VIMEO_ABSPATH . '/inc/classWpVimeoShortcodes.php';
@@ -127,44 +134,46 @@ class WpVimeo {
      *
      * @since 1.0.0
      */
-    public function wpVimeoScripts() {
+    public function wpVimeoScripts()
+    {
         global $post;
-        wp_register_script( 'wp_vimeo_slider', WP_VIMEO_URL . '/assets/js/slick.min.js', array( 'jquery' ), WP_VIMEO_VERSION, true );
-
+        wp_register_script('wp_vimeo_slider', WP_VIMEO_URL . '/assets/js/slick.min.js', array( 'jquery' ), WP_VIMEO_VERSION, true);
 
         wp_enqueue_script('wp_vimeo_script', WP_VIMEO_URL . "/assets/js/wp-vimeo{$this->suffix}.js", array('jquery', 'jquery-ui-datepicker', 'wp_vimeo_slider'), WP_VIMEO_VERSION);
 
-		wp_enqueue_script('wp_vimeo_chosen', WP_VIMEO_URL . "/assets/js/chosen.jquery.min.js", array('jquery'), WP_VIMEO_VERSION, true);
+        wp_enqueue_script('wp_vimeo_chosen', WP_VIMEO_URL . "/assets/js/chosen.jquery.min.js", array('jquery'), WP_VIMEO_VERSION, true);
 
+        wp_enqueue_script('wp_vimeo_api', "https://www.google.com/recaptcha/api.js", array('jquery'), WP_VIMEO_VERSION, true);
 
-		wp_enqueue_script('wp_vimeo_api', "https://www.google.com/recaptcha/api.js", array('jquery'), WP_VIMEO_VERSION, true);
+        wp_register_style('wp_vimeo_slider', WP_VIMEO_URL . '/assets/css/slick.min.css', false, WP_VIMEO_VERSION);
 
-		wp_register_style( 'wp_vimeo_slider', WP_VIMEO_URL . '/assets/css/slick.min.css', false, WP_VIMEO_VERSION);
+        wp_register_style('wp_vimeo_slider_theme', WP_VIMEO_URL . '/assets/css/slick-theme.css', false, WP_VIMEO_VERSION);
 
-        wp_register_style( 'wp_vimeo_slider_theme', WP_VIMEO_URL . '/assets/css/slick-theme.css', false, WP_VIMEO_VERSION);
+        wp_enqueue_style('e2b-admin-ui-css', WP_VIMEO_URL.'/assets/css/jquery-ui.css', false, WP_VIMEO_VERSION, false);
 
-		wp_enqueue_style('e2b-admin-ui-css', WP_VIMEO_URL.'/assets/css/jquery-ui.css', false, WP_VIMEO_VERSION, false);
+        wp_enqueue_style('wp_vimeo_slider_chosen', WP_VIMEO_URL.'/assets/css/chosen.min.css', false, WP_VIMEO_VERSION, false);
 
-		wp_enqueue_style('wp_vimeo_slider_chosen', WP_VIMEO_URL.'/assets/css/chosen.min.css', false, WP_VIMEO_VERSION, false);
-
-		wp_enqueue_style('wp_vimeo_gallery', WP_VIMEO_URL.'/assets/css/slide.css', false, WP_VIMEO_VERSION, false);
+        wp_enqueue_style('wp_vimeo_gallery', WP_VIMEO_URL.'/assets/css/slide.css', false, WP_VIMEO_VERSION, false);
 
         wp_enqueue_style('wp_vimeo_style', WP_VIMEO_URL . "/assets/css/wp-vimeo{$this->suffix}.css", array('wp_vimeo_slider', 'wp_vimeo_slider_theme'), WP_VIMEO_VERSION);
 
-		wp_enqueue_style('wp_vimeo_custom', WP_VIMEO_URL.'/assets/css/custom.css', false, WP_VIMEO_VERSION, false);
+        wp_enqueue_style('wp_vimeo_custom', WP_VIMEO_URL.'/assets/css/custom.css', false, WP_VIMEO_VERSION, false);
 
-        if(isset($post->ID)){
-			  wp_localize_script('wp_vimeo_script', 'wp_vimeo', array(
+        if (isset($post->ID)) {
+            wp_localize_script(
+                'wp_vimeo_script',
+                'wp_vimeo',
+                array(
                 'ajax_url' => admin_url('admin-ajax.php'),
                 "permalink" => get_permalink($post->ID),
                 '_wpnonce' => wp_create_nonce('km_nonce_' . $post->ID),
-				)
-			);
-		}
-
+                )
+            );
+        }
     }
 
-    public function wpVimeoAdminScripts() {
+    public function wpVimeoAdminScripts()
+    {
         wp_enqueue_script('wp_vimeo_admin_script', WP_VIMEO_URL . '/admin/js/wp-vimeo.js', array('jquery'), WP_VIMEO_VERSION);
         wp_enqueue_style('wp_vimeo_admin_style', WP_VIMEO_URL . '/admin/css/wp-vimeo.css', array(), WP_VIMEO_VERSION);
     }
@@ -175,7 +184,8 @@ class WpVimeo {
      * @param string      $name  Constant name.
      * @param string|bool $value Cnstantonstant value.
      */
-    private function define($name, $value) {
+    private function define($name, $value)
+    {
         if (!defined($name)) {
             define($name, $value);
         }
@@ -195,7 +205,8 @@ class WpVimeo {
      *
      * @return string Avatar.
      */
-    public function avatar_override($avatar, $id_or_email, $size, $default, $alt, $args = array()) {
+    public function avatar_override($avatar, $id_or_email, $size, $default, $alt, $args = array())
+    {
         global $pagenow;
         if ('options-discussion.php' === $pagenow) {
             return $avatar; // Stop overriding gravatars on options-discussion page.
@@ -245,7 +256,8 @@ class WpVimeo {
 
         // Determine if the user has a profile image.
         $custom_avatar = $this->wpVimeoProfilePic(
-                $user_id, array(
+            $user_id,
+            array(
                     'size' => array($size, $size),
                     'attr' => array(
                         'alt' => $alt,
@@ -269,7 +281,8 @@ class WpVimeo {
      *
      * @return array $args Overridden URL or default if none can be found
      * */
-    public function pre_avatar_override($args, $id_or_email) {
+    public function pre_avatar_override($args, $id_or_email)
+    {
 
         // Get user data.
         if (is_numeric($id_or_email)) {
@@ -323,53 +336,60 @@ class WpVimeo {
     *   attr - string || array (see get_the_post_thumbnail).
     *   echo - bool (true or false) - whether to echo the image or return it.
     */
-    public function wpVimeoProfilePic( $user_id, $args = array() ) {
-           $profile_post_id = absint( get_user_option( 'wp_vimeo_profile_attachment', $user_id ) );
+    public function wpVimeoProfilePic($user_id, $args = array())
+    {
+        $profile_post_id = absint(get_user_option('wp_vimeo_profile_attachment', $user_id));
 
-           $defaults = array(
+        $defaults = array(
                    'size' => 'thumbnail',
                    'attr' => '',
                    'echo' => true,
            );
-           $args     = wp_parse_args( $args, $defaults );
-           extract( $args ); // phpcs:ignore
-           //echo wp_get_attachment_url($profile_post_id);die;
-           $post_thumbnail_id = get_post_thumbnail_id( $profile_post_id );
-           //echo $post_thumbnail_id; die;
-           // Return false or echo nothing if there is no post thumbnail.
-           if ( ! $post_thumbnail_id ) {
-                   if ( $echo ) {
-                           echo '';
-                   } else {
-                           return false;
-                   }
-                   return;
-           }
+        $args     = wp_parse_args($args, $defaults);
+        extract($args); // phpcs:ignore
+        //echo wp_get_attachment_url($profile_post_id);die;
+        $post_thumbnail_id = get_post_thumbnail_id($profile_post_id);
+        //echo $post_thumbnail_id; die;
+        // Return false or echo nothing if there is no post thumbnail.
+        if (! $post_thumbnail_id) {
+            if ($echo) {
+                echo '';
+            } else {
+                return false;
+            }
+            return;
+        }
 
-           // Implode Classes if set and array - dev note: edge case.
-           if ( is_array( $attr ) && isset( $attr['class'] ) ) {
-                   if ( is_array( $attr['class'] ) ) {
-                           $attr['class'] = implode( ' ', $attr['class'] );
-                   }
-           }
+        // Implode Classes if set and array - dev note: edge case.
+        if (is_array($attr) && isset($attr['class'])) {
+            if (is_array($attr['class'])) {
+                $attr['class'] = implode(' ', $attr['class']);
+            }
+        }
 
-           $post_thumbnail = wp_get_attachment_image( $profile_post_id, $size, false, $attr );
+        $post_thumbnail = wp_get_attachment_image($profile_post_id, $size, false, $attr);
 
-           /**
-            * Filter outputted HTML.
-            *
-            * Filter outputted HTML.
-            *
-            * @param string $post_thumbnail       img tag with formed HTML.
-            * @param int    $profile_post_id      The profile in which the image is attached.
-            * @param int    $profile_thumbnail_id The thumbnail ID for the attached image.
-            * @param int    $user_id              The user id for which the image is attached.
-            */
-           $post_thumbnail = apply_filters( 'wp_vimeo_userpic_html', $post_thumbnail, $profile_post_id, $post_thumbnail_id, $user_id );
-           if ( $echo ) {
-                   echo wp_kses_post( $post_thumbnail );
-           } else {
-                   return $post_thumbnail;
-           }
-   }   /**   * hide admin bar   */   public function remove_admin_bar() {			show_admin_bar(false);		}
+        /**
+         * Filter outputted HTML.
+         *
+         * @param string $post_thumbnail       img tag with formed HTML.
+         * @param int    $profile_post_id      The profile in which the image is attached.
+         * @param int    $profile_thumbnail_id The thumbnail ID for the attached image.
+         * @param int    $user_id              The user id for which the image is attached.
+         */
+        $post_thumbnail = apply_filters('wp_vimeo_userpic_html', $post_thumbnail, $profile_post_id, $post_thumbnail_id, $user_id);
+        if ($echo) {
+            echo wp_kses_post($post_thumbnail);
+        } else {
+            return $post_thumbnail;
+        }
+    }
+
+    /**
+     * hide admin bar
+    */
+    public function remove_admin_bar()
+    {
+        show_admin_bar(false);
+    }
 }

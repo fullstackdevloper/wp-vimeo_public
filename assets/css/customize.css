@@ -233,7 +233,7 @@ h3.wp_vimeo_heading {
     margin-top: 3px;
 }
 
-.wp_vimeo_note_title input {
+.wp_vimeo_note_title input, .wp_vimeo_note_date input {
     display: block;
     margin-left: 0;
 }

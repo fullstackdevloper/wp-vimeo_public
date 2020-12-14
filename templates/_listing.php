@@ -53,6 +53,12 @@
                             <input type="text" placeholder="Title" wp_vimeo_validation="required" value="<?php echo $post->post_title; ?>" name="wp_vimeo_video[title]" class="wp_vimeo_input">
                         </div>
                     </div>
+                    <div class="wp_vimeo_row">
+                        <div class="wp_vimeo_col_12 wp_vimeo_note_date wp_vimeo_fieldwrap">
+							<label>Date</label>
+                            <input type="text" placeholder="Date" wp_vimeo_validation="required" name="wp_vimeo_video[date]" value="<?php echo get_the_date('', $post); ?>" class="wp_vimeo_input wp_vimeo_datepicker">
+                        </div>
+                    </div>
 					<div class="wp_vimeo_row">
                     <?php
                         // Only show tags if it is a video type
@@ -82,9 +88,9 @@
                             </select>
 
                         </div>
-                            <div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
-                                <a href="javascript:void();" class="deselect wp_vimeo_btn">Deselect All</a>
-                            </div>
+                        <div class="wp_vimeo_col_12 wp_vimeo_note_title wp_vimeo_fieldwrap">
+                            <a href="javascript:void();" class="deselect wp_vimeo_btn">Deselect All</a>
+                        </div>
                     </div>
                     <?php endif; ?>
 

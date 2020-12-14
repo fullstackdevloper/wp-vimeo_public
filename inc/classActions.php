@@ -524,6 +524,7 @@ class WpVimeoActions
 
         if (array_key_exists('wp_vimeo_video', $postData)) {
             $newTitle = $postData['wp_vimeo_video']['title'];
+            $newDate = $postData['wp_vimeo_video']['date'];
             $newcaption = $postData['wp_vimeo_video']['caption'];
             $tag_option = $postData['wp_vimeo_video']['tag_option'];
             $postId = $postData['wp_vimeopost_id'];
@@ -535,7 +536,10 @@ class WpVimeoActions
                     global $wpVimeoSettings;
                     $lib = new Vimeo($wpVimeoSettings['vimeo_client_id'], $wpVimeoSettings['vimeo_client_secret'], $wpVimeoSettings['vimeo_access_token']);
 
-                    $response = $lib->request('/videos/'.$postVideoId, ['description' => $newcaption, 'name' => $newTitle], 'PATCH');
+                    $response = $lib->request('/videos/'.$postVideoId, [
+                        'description' => $newcaption,
+                        'name' => $newTitle,
+                    ], 'PATCH');
 
                     foreach ($tag_option as $tag_op) {
                         $lib->request('/videos/488470225/tags/'.$tag_op, '', 'DELETE');
@@ -555,7 +559,12 @@ class WpVimeoActions
                     }
                 }
 
-                $isupdated = wp_update_post(['ID' => $postId, 'post_title' => $newTitle, 'post_content' => $newcaption]);
+                $isupdated = wp_update_post([
+                    'ID' => $postId,
+                    'post_title' => $newTitle,
+                    'post_content' => $newcaption,
+                    'post_date' => $newDate,
+                ]);
                 if (is_wp_error($isupdated)) {
                     $error_string = $isupdated->get_error_message();
                 }

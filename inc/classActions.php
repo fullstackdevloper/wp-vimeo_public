@@ -558,12 +558,13 @@ class WpVimeoActions
                         exit();
                     }
                 }
+				$updatedate = date('Y-m-d H:i:s', strtotime($newDate));
 
                 $isupdated = wp_update_post([
                     'ID' => $postId,
                     'post_title' => $newTitle,
                     'post_content' => $newcaption,
-                    'post_date' => $newDate,
+                    'post_date' => $updatedate,
                 ]);
                 if (is_wp_error($isupdated)) {
                     $error_string = $isupdated->get_error_message();
